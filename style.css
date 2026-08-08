@@ -7,14 +7,14 @@ body {
   padding: 0;
   background-color: #fafafa;
   color: #333;
-  font-size: 16px; /* tamanho base maior */
+  font-size: 16px;
   line-height: 1.5;
   text-align: center;
 }
 
 /* Cabeçalho */
 header {
-  background-color: #800020; /* vinho */
+  background-color: #800020;
   color: #fff;
   text-align: center;
   padding: 20px;
@@ -211,11 +211,22 @@ form button:hover {
   max-width: 500px;
   text-align: left;
   font-size: 16px;
+  max-height: 90vh; /* permite rolagem */
+  overflow-y: auto;
 }
 #fechar-modal {
   float: right;
   cursor: pointer;
   font-size: 20px;
+}
+
+/* Corrige imagens grandes dentro do modal */
+#detalhes-produto img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  display: block;
+  margin: 0 auto 10px;
 }
 
 /* =========================
@@ -245,53 +256,4 @@ form button:hover {
   margin-top: 15px;
   padding: 12px 20px;
   background: #800020;
-  color: #fff;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-  font-size: 16px;
-}
-#form-pedido button:hover {
-  background: #a52a2a;
-}
-
-/* =========================
-   RESPONSIVIDADE MOBILE
-========================= */
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 1.6em;
-  }
-  header p {
-    font-size: 1.1em;
-  }
-
-  form {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  form input, form select, form button {
-    flex: 1 1 100%;
-    font-size: 16px;
-  }
-
-  #produtos, #lista-produtos {
-    flex-direction: column;
-    align-items: center;
-  }
-  .produto {
-    width: 90%;
-    margin-bottom: 20px;
-  }
-
-  .modal-content {
-    width: 95%;
-    font-size: 16px;
-  }
-
-  #form-pedido {
-    width: 95%;
-    font-size: 16px;
-  }
-}
+  color
