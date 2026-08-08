@@ -2,30 +2,25 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <title>Admin - Tapiocadamimi</title>
+  <title>Admin - Tapioca da Mimi</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>Painel Admin</h1>
-  <form id="produtoForm">
-    <label>Nome:</label>
-    <input type="text" id="nome" required><br>
+<header>
+  <h1>Painel Administrativo</h1>
+  <p>Adicione novos produtos ao cardápio</p>
+</header>
 
-    <label>Preço:</label>
-    <input type="text" id="preco" required><br>
+<form id="form-produto">
+  <input type="text" id="nome" placeholder="Nome do produto" required>
+  <input type="text" id="preco" placeholder="Preço" required>
+  <input type="text" id="imagem" placeholder="URL da imagem" required>
+  <input type="text" id="mensagem" placeholder="Mensagem do WhatsApp" required>
+  <button type="submit">Adicionar Produto</button>
+</form>
 
-    <label>Imagem (URL):</label>
-    <input type="text" id="imagem" required><br>
+<section id="produtos"></section>
 
-    <label>Mensagem WhatsApp:</label>
-    <input type="text" id="mensagem" required><br>
-
-    <button type="submit">Adicionar Produto</button>
-  </form>
-
-  <h2>Produtos cadastrados</h2>
-  <ul id="listaProdutos"></ul>
-
-  <script src="admin.js"></script>
+<script src="script.js"></script>
 </body>
 </html>
