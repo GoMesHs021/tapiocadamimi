@@ -17,15 +17,59 @@ header {
   background-color: #800020;
   color: #fff;
   text-align: center;
-  padding: 20px;
+  padding: 30px 20px;
 }
 header h1 {
   margin: 0;
-  font-size: 2em;
+  font-size: 2.4em;
 }
 header p {
   margin: 5px 0 0;
-  font-size: 1.2em;
+  font-size: 1.3em;
+}
+
+/* =========================
+   PERFIL (Clientes/Admin)
+========================= */
+#perfil {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin: 20px auto;
+  padding: 20px;
+  background-color: #fff3e0;
+  border-radius: 10px;
+  max-width: 900px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  text-align: left;
+}
+#perfil img {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin-right: 20px;
+  border: 3px solid #a52a2a;
+}
+.info-perfil h2 {
+  margin: 0 0 10px;
+  color: #800020;
+  font-size: 1.6em;
+}
+.info-perfil p {
+  margin: 4px 0;
+  font-size: 1.1em;
+  color: #333;
+}
+
+/* Responsividade: no celular a foto fica em cima */
+@media (max-width: 768px) {
+  #perfil {
+    flex-direction: column;
+    text-align: center;
+  }
+  #perfil img {
+    margin: 0 0 15px;
+  }
 }
 
 /* =========================
@@ -79,32 +123,6 @@ form button:hover {
 }
 #exportar-json:hover {
   background-color: #a52a2a;
-}
-
-/* =========================
-   PERFIL (Clientes/Admin)
-========================= */
-#perfil, #preview-perfil {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: 20px auto;
-  padding: 15px;
-  background-color: #fff3e0;
-  border-radius: 10px;
-  max-width: 600px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-}
-#perfil img, #preview-perfil img {
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  margin-right: 15px;
-  border: 2px solid #a52a2a;
-}
-#perfil p, #preview-perfil p {
-  font-size: 1.2em;
-  color: #a52a2a;
 }
 
 /* =========================
@@ -164,23 +182,25 @@ form button:hover {
 /* =========================
    ADICIONAIS
 ========================= */
-#lista-adicionais {
+#adicionais {
   margin: 20px;
   text-align: left;
 }
-#lista-adicionais p {
+#adicionais .adicional {
   margin: 6px 0;
   padding: 6px;
   border-bottom: 1px solid #eee;
   color: #800020;
   font-weight: 500;
   font-size: 1.1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
-#lista-adicionais p:last-child {
+#adicionais .adicional:last-child {
   border-bottom: none;
 }
-#lista-adicionais button {
-  margin-left: 10px;
+#adicionais .adicional button {
   background-color: #ccc;
   color: #333;
   border: none;
@@ -189,7 +209,7 @@ form button:hover {
   cursor: pointer;
   transition: background 0.3s;
 }
-#lista-adicionais button:hover {
+#adicionais .adicional button:hover {
   background-color: #999;
 }
 
@@ -239,7 +259,7 @@ form button:hover {
 }
 
 /* Corrige imagens grandes dentro do modal */
-#detalhes-produto img {
+.modal-content img {
   max-width: 100%;
   max-height: 250px;
   height: auto;
@@ -249,7 +269,7 @@ form button:hover {
   object-fit: cover;
   transition: transform 0.3s ease;
 }
-#detalhes-produto img:hover {
+.modal-content img:hover {
   transform: scale(1.05);
 }
 
@@ -296,19 +316,10 @@ form button:hover {
 ========================= */
 @media (max-width: 768px) {
   header h1 {
-    font-size: 1.6em;
+    font-size: 1.8em;
   }
   header p {
     font-size: 1.1em;
   }
-
-  form {
-    flex-direction: column;
-    align-items: stretch;
-  }
-  form input, form select, form button {
-    flex: 1 1 100%;
-    font-size: 16px;
-  }
-
-  #produtos
+  .produto {
+    width: 
