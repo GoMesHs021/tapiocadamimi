@@ -151,16 +151,16 @@ header p {
 }
 .modal-content {
   background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  width: 90%;
-  max-width: 400px;
-  text-align: left;
-  font-size: 16px;
+  padding: 25px;
+  border-radius: 16px;
+  width: 95%;
+  max-width: 500px;
+  font-size: 18px;
   max-height: 90vh;
   overflow-y: auto;
   transform: scale(0.9);
   transition: transform 0.3s ease;
+  position: relative;
 }
 .modal.show .modal-content {
   transform: scale(1);
@@ -169,7 +169,7 @@ header p {
   position: absolute;
   top: 10px;
   right: 15px;
-  font-size: 26px;
+  font-size: 28px;
   font-weight: bold;
   color: #800020;
   cursor: pointer;
@@ -181,37 +181,34 @@ header p {
 /* =========================
    FORMULÁRIO DE PEDIDO
 ========================= */
-#form-pedido {
-  margin: 20px auto;
-  max-width: 95%;
-  background: #fff;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  font-size: 16px;
-}
-#form-pedido.hidden { display: none; }
 #form-pedido h2 {
   color: #800020;
+  text-align: center;
+  margin-bottom: 15px;
 }
-#form-pedido input, #form-pedido select {
+#form-pedido h3 {
+  margin-top: 15px;
+  color: #800020;
+}
+#form-pedido input,
+#form-pedido select {
   width: 100%;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  font-size: 16px;
-  margin-bottom: 10px;
+  padding: 14px;
+  border: 2px solid #800020;
+  border-radius: 10px;
+  font-size: 1.1em;
+  margin-bottom: 12px;
 }
 #form-pedido button {
   margin-top: 15px;
-  padding: 14px;
+  padding: 16px;
   background: #800020;
   color: #fff;
   border: none;
-  border-radius: 8px;
+  border-radius: 12px;
   cursor: pointer;
   transition: background 0.3s;
-  font-size: 1.1em;
+  font-size: 1.2em;
   width: 100%;
 }
 #form-pedido button:hover {
