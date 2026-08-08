@@ -1,7 +1,7 @@
 {
   "produtos": [
     {
-      "nome": " Tapioca Pura ( sem Recheio)",
+      "nome": "Tapioca Pura (sem Recheio)",
       "preco": "4,00",
       "imagem": "https://i.pinimg.com/736x/b1/e8/24/b1e824005398e3bbd544f84e9fa4c72a.jpg",
       "mensagem": "Gostaria de fazer esse pedido!"
@@ -9,21 +9,20 @@
     {
       "nome": "Tapioca de Coco 🥥",
       "preco": "8,00",
-      "imagem": "https://tse1.mm.bing.net/th/id/OIP.OKAgL59iKqswt9DQiB_yZQHaEw?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+      "imagem": "https://tse1.mm.bing.net/th/id/OIP.OKAgL59iKqswt9DQiB_yZQHaEw",
       "mensagem": "Gostaria de fazer esse pedido!"
     }
-
   ],
   "adicionais": [
-    { "nome": "Ovo", "preco": "2.00" },
-    { "nome": "Canela", "preco": "3.00" },
-    { "nome": "Leite condensado", "preco": "4.00" },
-    { "nome": "Mussarela", "preco": "5.00" },
-    { "nome": "Presunto", "preco": "2.00" },
-    { "nome": "Calabresa", "preco": "5.00" },
-    { "nome": "Queijo coalho", "preco": "5.00" },
-    { "nome": "Manteiga", "preco": "2.00" },
-    { "nome": "Cream Cheese", "preco": "5.00" },
-    { "nome": "Frango", "preco": "5.00" }
+    { "nome": "Ovo", "preco": "2,00" },
+    { "nome": "Canela", "preco": "3,00" },
+    { "nome": "Leite condensado", "preco": "4,00" },
+    { "nome": "Mussarela", "preco": "5,00" },
+    { "nome": "Presunto", "preco": "2,00" },
+    { "nome": "Calabresa", "preco": "5,00" },
+    { "nome": "Queijo coalho", "preco": "5,00" },
+    { "nome": "Manteiga", "preco": "2,00" },
+    { "nome": "Cream Cheese", "preco": "5,00" },
+    { "nome": "Frango", "preco": "5,00" }
   ]
 }
