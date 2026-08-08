@@ -82,15 +82,22 @@ function renderizarAdicionaisAdmin() {
   });
 
   document.querySelectorAll('.adicional .excluir').forEach(btn => {
-    btn.addEventListener('click', function() {
-      let adicionais = JSON.parse(localStorage.getItem('adicionais')) || [];
-      const idx = this.getAttribute('data-index');
-      adicionais.splice(idx, 1);
-      localStorage.setItem('adicionais', JSON.stringify(adicionais));
-      renderizarAdicionaisAdmin();
+    btn.addEventListener('click', () => {
+  // Se já está visível, fecha
+  if (lista.style.display === 'block') {
+    lista.style.display = 'none';
+  } else {
+    // Se está fechado, abre e carrega os adicionais
+    lista.innerHTML = '';
+    data.adicionais.forEach(add => {
+      const li = document.createElement('li');
+      li.textContent = `${add.nome} - R$ ${add.preco}`;
+      lista.appendChild(li);
     });
-  });
-}
+    lista.style.display = 'block';
+  }
+});
+
 
 // --- Exportar JSON ---
 const exportarBtn = document.getElementById('exportar-json');
