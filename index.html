@@ -1,30 +1,57 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Cardápio - Tapioca da Mimi</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Tapioca da Mimi</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-    <!-- Perfil de boas-vindas -->
-<section id="perfil">
-    <img src="img/foto-perfil.jpg" alt="Foto da Mimi">
-    <p>Olá, bem-vindo à Tapioca da Mimi!</p>
-</section>
-    <h1>Cardápio - Tapioca da Mimi</h1>
-    <p>Escolha sua tapioca favorita e peça pelo WhatsApp</p>
-    <p>📍 Localização: Rio das Pedras - RJ</p>
-    <p>⏰ Entregas: das 8:00 às 14:00</p>
-    <p>🚚 Área de entrega: Somente no Rio das Pedras</p>
-</header>
+  <h1>Cardápio - Tapioca da Mimi</h1>
 
-<!-- Lista de produtos -->
-<section id="produtos"></section>
+  <!-- Perfil -->
+  <div id="perfil"></div>
 
-<!-- Área onde aparece o formulário de pedido -->
-<section id="pedido"></section>
+  <!-- Produtos -->
+  <div id="produtos"></div>
 
-<script src="script-clientes.js"></script>
+  <!-- Modal de Produto -->
+  <div id="modal-produto" class="modal hidden">
+    <div class="modal-content">
+      <span id="fechar-modal">&times;</span>
+      <div id="detalhes-produto"></div>
+      <div id="opcoes-adicionais"></div>
+      <button id="btn-finalizar">Finalizar Pedido</button>
+    </div>
+  </div>
+
+  <!-- Formulário de Pedido -->
+  <div id="form-pedido" class="hidden">
+    <h2>Finalizar Pedido</h2>
+    <form id="pedido-form">
+      <label>Nome: <input type="text" id="cliente-nome" required></label><br>
+      <label>Telefone: <input type="text" id="cliente-telefone" required></label><br>
+      <label>Endereço: <input type="text" id="cliente-endereco" required></label><br>
+      <label>Número: <input type="text" id="cliente-numero" required></label><br>
+      <label>Forma de pagamento:
+        <select id="cliente-pagamento" required>
+          <option value="Pix">Pix</option>
+          <option value="Cartão">Cartão</option>
+          <option value="Dinheiro">Dinheiro</option>
+        </select>
+      </label><br>
+      <div id="troco-opcao" class="hidden">
+        <label>Precisa de troco?
+          <select id="cliente-troco">
+            <option value="Sim">Sim</option>
+            <option value="Não">Não</option>
+          </select>
+        </label>
+      </div>
+      <button type="submit">Enviar Pedido</button>
+    </form>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script-clientes.js"></script>
 </body>
 </html>
