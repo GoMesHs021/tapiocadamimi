@@ -6,18 +6,26 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>TAPIOCADAMIMI</h1>
-  <div id="produtos"></div>
+  <header>
+    <h1>Tapiocadamimi</h1>
+    <p>Feito na hora com ingredientes frescos!</p>
+    <button onclick="document.getElementById('produtos').scrollIntoView({behavior:'smooth'})">
+      🍴 Vamos começar
+    </button>
+  </header>
+
+  <!-- Área onde os produtos vão aparecer -->
+  <section id="produtos"></section>
 
   <script src="script.js"></script>
+
   <footer>
-  <div class="footer-container">
-    <p>📞 WhatsApp: <a href="https://wa.me/5521999999999" target="_blank">+55 21 99999-9999</a></p>
-    <p>📷 Instagram: <a href="https://instagram.com/tapiocadamimi" target="_blank">@tapiocadamimi</a></p>
-    <p>📍 Endereço: Rua das Tapiocas, 123 - Rio de Janeiro</p>
-    <p>© 2026 Tapiocadamimi - Sabor & Qualidade</p>
-  </div>
-</footer>
-Adiciona rodapé estilizado
+    <div class="footer-container">
+      <p>📞 WhatsApp: <a href="https://wa.me/5521999999999" target="_blank">+55 21 99999-9999</a></p>
+      <p>📷 Instagram: <a href="https://instagram.com/tapiocadamimi" target="_blank">@tapiocadamimi</a></p>
+      <p>📍 Endereço: Rua das Tapiocas, 123 - Rio de Janeiro</p>
+      <p>© 2026 Tapiocadamimi - Sabor & Qualidade</p>
+    </div>
+  </footer>
 </body>
 </html>
