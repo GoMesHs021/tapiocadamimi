@@ -133,13 +133,13 @@ header p {
 }
 
 /* =========================
-   MODAL
+   MODAL MOBILE-FIRST
 ========================= */
 .modal {
   position: fixed;
   top: 0; left: 0;
   width: 100%; height: 100%;
-  background: rgba(0,0,0,0.7);
+  background: rgba(0,0,0,0.85);
   display: flex; justify-content: center; align-items: center;
   opacity: 0;
   visibility: hidden;
@@ -152,30 +152,63 @@ header p {
 .modal-content {
   background: #fff;
   padding: 25px;
-  border-radius: 16px;
-  width: 95%;
-  max-width: 500px;
+  border-radius: 0;              /* ocupa toda a tela */
+  width: 100%;                   /* largura total */
+  height: 100%;                  /* altura total */
   font-size: 18px;
-  max-height: 90vh;
   overflow-y: auto;
-  transform: scale(0.9);
-  transition: transform 0.3s ease;
   position: relative;
-}
-.modal.show .modal-content {
-  transform: scale(1);
 }
 #fechar-modal {
   position: absolute;
-  top: 10px;
-  right: 15px;
-  font-size: 28px;
+  top: 15px;
+  right: 20px;
+  font-size: 32px;
   font-weight: bold;
   color: #800020;
   cursor: pointer;
 }
 #fechar-modal:hover {
   color: #a52a2a;
+}
+
+/* =========================
+   FORMULÁRIO DE PEDIDO MOBILE
+========================= */
+#form-pedido h2 {
+  color: #800020;
+  text-align: center;
+  margin-bottom: 20px;
+  font-size: 1.6em;
+}
+#form-pedido h3 {
+  margin-top: 20px;
+  color: #800020;
+  font-size: 1.2em;
+}
+#form-pedido input,
+#form-pedido select {
+  width: 100%;
+  padding: 16px;
+  border: 2px solid #800020;
+  border-radius: 10px;
+  font-size: 1.2em;
+  margin-bottom: 15px;
+}
+#form-pedido button {
+  margin-top: 20px;
+  padding: 18px;
+  background: #800020;
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 1.3em;
+  width: 100%;
+}
+#form-pedido button:hover {
+  background: #a52a2a;
 }
 
 /* =========================
