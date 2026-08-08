@@ -1,24 +1,27 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Admin - Tapioca da Mimi</title>
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <title>Admin - Tapioca da Mimi</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 <header>
-  <h1>Painel Administrativo</h1>
-  <p>Adicione novos produtos ao cardápio</p>
+    <h1>Painel Administrativo</h1>
+    <p>Adicione novos produtos e adicionais ao cardápio</p>
 </header>
 
+<!-- Formulário de Produtos -->
+<h2>Adicionar produto</h2>
 <form id="form-produto">
-  <input type="text" id="nome" placeholder="Nome do produto" required>
-  <input type="text" id="preco" placeholder="Preço" required>
-  <input type="text" id="imagem" placeholder="URL da imagem" required>
-  <input type="text" id="mensagem" placeholder="Mensagem do WhatsApp" required>
-  <button type="submit">Adicionar Produto</button>
+    <input type="text" id="nome" placeholder="Nome do produto" required>
+    <input type="text" id="preco" placeholder="Preço" required>
+    <input type="text" id="imagem" placeholder="URL da imagem" required>
+    <input type="text" id="mensagem" placeholder="Mensagem do WhatsApp" required>
+    <button type="submit">Adicionar Produto</button>
 </form>
-  
+
+<!-- Formulário de Adicionais -->
 <h2>Adicionar adicional</h2>
 <form id="form-adicional">
     <input type="text" id="nome-adicional" placeholder="Nome do adicional" required>
@@ -26,16 +29,16 @@
     <button type="submit">Adicionar adicional</button>
 </form>
 
-<!-- Área para visualizar os adicionais cadastrados -->
-<h2>Adicionais cadastrados</h2>
-<section id="adicionais"></section>
-
 <!-- Botão para exportar JSON -->
 <button id="exportar-json">Exportar JSON</button>
 
 <!-- Área para visualizar os produtos cadastrados -->
 <h2>Produtos cadastrados</h2>
 <section id="produtos"></section>
+
+<!-- Área para visualizar os adicionais cadastrados -->
+<h2>Adicionais cadastrados</h2>
+<section id="adicionais"></section>
 
 <!-- Área separada para prévia do JSON -->
 <h2>Prévia do JSON exportado</h2>
