@@ -1,3 +1,17 @@
+// --- Renderizar Perfil para Clientes ---
+function renderizarPerfil(perfil) {
+    const container = document.getElementById('perfil');
+    container.innerHTML = `
+        <img src="${perfil.foto}" alt="Foto da Mimi">
+        <div>
+            <p>${perfil.mensagem}</p>
+            <p>📍 ${perfil.localizacao}</p>
+            <p>⏰ Entregas: ${perfil.horario}</p>
+            <p>🚚 Área de entrega: ${perfil.area}</p>
+        </div>
+    `;
+}
+
 // --- Renderizar Produtos para Clientes ---
 function renderizarProdutos() {
     fetch('data.json')
