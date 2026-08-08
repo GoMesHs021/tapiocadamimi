@@ -52,6 +52,7 @@ function renderizarProdutosAdmin() {
         container.appendChild(card);
     });
 
+    // Exclusão de produtos
     document.querySelectorAll('.produto .excluir').forEach(btn => {
         btn.addEventListener('click', function() {
             let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
@@ -80,6 +81,7 @@ function renderizarAdicionaisAdmin() {
         container.appendChild(item);
     });
 
+    // Exclusão de adicionais
     document.querySelectorAll('.adicional .excluir').forEach(btn => {
         btn.addEventListener('click', function() {
             let adicionais = JSON.parse(localStorage.getItem('adicionais')) || [];
