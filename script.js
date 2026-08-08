@@ -17,7 +17,7 @@ async function carregarProdutos() {
         <img src="${p.imagem}" alt="${p.nome}" width="150">
         <h3>${p.nome}</h3>
         <p>R$ ${p.preco}</p>
-        <a href="https://wa.me/5521999999999?text=${encodeURIComponent(p.mensagem)}" target="_blank">
+        <a href="https://wa.me/5521995714872?text=${encodeURIComponent(p.mensagem)}" target="_blank">
           Comprar pelo WhatsApp
         </a>
       `;
@@ -45,7 +45,7 @@ function renderizarProdutosAdmin() {
       <img src="${produto.imagem}" alt="${produto.nome}" width="150">
       <h3>${produto.nome}</h3>
       <p>R$ ${produto.preco}</p>
-      <a href="https://wa.me/5521999999999?text=${encodeURIComponent(produto.mensagem)}" target="_blank">
+      <a href="https://wa.me/5521995714872?text=${encodeURIComponent(produto.mensagem)}" target="_blank">
         Comprar pelo WhatsApp
       </a>
       <button class="excluir" data-index="${index}">Excluir</button>
