@@ -125,18 +125,17 @@ function renderizarProdutos() {
                 <img src="${produto.imagem}" alt="${produto.nome}">
                 <h3>${produto.nome}</h3>
                 <p>R$ ${produto.preco}</p>
-                <button class="fazer-pedido">Fazer Pedido</button>
             `;
             container.appendChild(card);
 
-            // Evento de abrir formulário de pedido
-            const btn = card.querySelector('.fazer-pedido');
-            btn.addEventListener('click', () => {
+            // Evento: clicar no card abre formulário
+            card.addEventListener('click', () => {
                 abrirFormularioPedido(produto, data.adicionais);
             });
         });
     });
 }
+
 
 // --- Formulário de Pedido ---
 function abrirFormularioPedido(produto, adicionais) {
