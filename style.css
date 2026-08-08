@@ -1,10 +1,13 @@
-/* Estilo geral */
+/* =========================
+   ESTILO GERAL
+========================= */
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #fafafa;
   color: #333;
+  text-align: center;
 }
 
 /* Cabeçalho */
@@ -14,33 +17,36 @@ header {
   text-align: center;
   padding: 20px;
 }
-
 header h1 {
   margin: 0;
   font-size: 2em;
 }
-
 header p {
   margin: 5px 0 0;
   font-size: 1.1em;
 }
 
-/* Formulário admin */
+/* =========================
+   FORMULÁRIOS (Admin)
+========================= */
 form {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   justify-content: center;
   margin: 20px;
+  text-align: left;
 }
-
-form input {
+form label {
+  display: block;
+  margin-bottom: 10px;
+}
+form input, form select {
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
   flex: 1 1 200px;
 }
-
 form button {
   background-color: #800020;
   color: #fff;
@@ -50,7 +56,6 @@ form button {
   cursor: pointer;
   transition: background 0.3s;
 }
-
 form button:hover {
   background-color: #a52a2a;
 }
@@ -67,33 +72,58 @@ form button:hover {
   cursor: pointer;
   transition: background 0.3s;
 }
-
 #exportar-json:hover {
   background-color: #a52a2a;
 }
-#info {
-  background-color: #f4f4f4;
-  border-left: 5px solid #800020;
-  margin: 20px auto;
+
+/* Prévia JSON */
+#json-preview {
+  margin: 20px;
   padding: 15px;
-  max-width: 600px;
+  background: #f4f4f4;
   border-radius: 8px;
-  font-size: 1.1em;
+  font-family: monospace;
+  white-space: pre-wrap;
 }
 
-#info p {
-  margin: 8px 0;
+/* =========================
+   PERFIL (Clientes/Admin)
+========================= */
+#perfil, #preview-perfil {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 20px auto;
+  padding: 15px;
+  background-color: #fff3e0; /* fundo suave */
+  border-radius: 10px;
+  max-width: 600px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
-/* Produtos */
-#produtos {
+#perfil img, #preview-perfil img {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%; /* foto redonda */
+  margin-right: 15px;
+  border: 2px solid #a52a2a;
+}
+#perfil p, #preview-perfil p {
+  font-size: 1.1em;
+  color: #a52a2a;
+}
+
+/* =========================
+   PRODUTOS (Clientes/Admin)
+========================= */
+#produtos, #lista-produtos {
   display: flex;
   flex-wrap: wrap;
   gap: 20px;
   justify-content: center;
   margin: 20px;
 }
-
 .produto {
+  position: relative;
   background: #fff;
   border: 1px solid #ddd;
   border-radius: 10px;
@@ -102,168 +132,71 @@ form button:hover {
   text-align: center;
   box-shadow: 0 4px 6px rgba(0,0,0,0.1);
   transition: transform 0.2s;
-}
-.produto {
-  position: relative; /* necessário para posicionar o X */
-  background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 15px;
-  width: 220px;
-  text-align: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-  transition: transform 0.2s;
-}
-
-.produto .excluir {
-  position: absolute;
-  top: 8px;
-  right: 8px;
-  background: transparent;
-  border: none;
-  color: red;
-  font-size: 20px;
-  font-weight: bold;
   cursor: pointer;
-  transition: transform 0.2s;
 }
-
-.produto .excluir:hover {
-  transform: scale(1.2);
-}
-
 .produto:hover {
   transform: translateY(-5px);
 }
-
 .produto img {
   max-width: 100%;
   border-radius: 8px;
 }
-
 .produto h3 {
   margin: 10px 0 5px;
   color: #800020;
 }
-
 .produto p {
   font-weight: bold;
   margin: 5px 0;
 }
-
-.produto a {
-  display: inline-block;
+.produto button {
   margin-top: 10px;
   background-color: #800020;
   color: #fff;
-  text-decoration: none;
-  padding: 8px 12px;
-  border-radius: 6px;
-  transition: background 0.3s;
-}
-
-.produto a:hover {
-  background-color: #a52a2a;
-}
-
-/* Botão excluir */
-.produto button.excluir {
-  margin-top: 10px;
-  background-color: #ccc;
-  color: #333;
   border: none;
   padding: 8px 12px;
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s;
 }
-
-.produto button.excluir:hover {
-  background-color: #999;
-}
-/* Lista de adicionais */
-.lista-adicionais {
-  list-style: none;
-  padding: 10px;
-  margin-top: 10px;
-  background-color: #f9f9f9;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  display: none; /* começa escondida */
+.produto button:hover {
+  background-color: #a52a2a;
 }
 
-.lista-adicionais li {
+/* =========================
+   ADICIONAIS (Clientes/Admin)
+========================= */
+#lista-adicionais {
+  margin: 20px;
+  text-align: left;
+}
+#lista-adicionais p {
   margin: 6px 0;
   padding: 6px;
   border-bottom: 1px solid #eee;
-  color: #800020; /* vinho */
+  color: #800020;
   font-weight: 500;
 }
-
-.lista-adicionais li:last-child {
+#lista-adicionais p:last-child {
   border-bottom: none;
 }
-
-/* Botão de mostrar adicionais */
-.mostrar-adicionais {
-  margin-top: 10px;
-  background-color: #800020;
-  color: #fff;
+#lista-adicionais button {
+  margin-left: 10px;
+  background-color: #ccc;
+  color: #333;
   border: none;
-  padding: 8px 12px;
+  padding: 6px 12px;
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s;
 }
-
-.mostrar-adicionais:hover {
-  background-color: #a52a2a;
-}
-#perfil {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 20px auto;
-    padding: 15px;
-    background-color: #fff3e0; /* fundo suave */
-    border-radius: 10px;
-    max-width: 600px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+#lista-adicionais button:hover {
+  background-color: #999;
 }
 
-#perfil img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%; /* deixa a foto redonda */
-    margin-right: 15px;
-    border: 2px solid #a52a2a; /* borda combinando com o tema */
-}
-
-#perfil p {
-    font-size: 1.2em;
-    font-weight: bold;
-    color: #a52a2a;
-}
-body {
-  font-family: Arial, sans-serif;
-  background: #f9f9f9;
-  text-align: center;
-}
-
-.produto {
-  display: inline-block;
-  margin: 15px;
-  padding: 10px;
-  background: #fff;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-  cursor: pointer;
-  transition: transform 0.2s;
-}
-.produto:hover {
-  transform: scale(1.05);
-}
-
+/* =========================
+   MODAL (Clientes)
+========================= */
 .modal {
   position: fixed;
   top: 0; left: 0;
@@ -285,51 +218,9 @@ body {
   font-size: 20px;
 }
 
-.hidden { display: none; }
-
-form {
-  margin-top: 20px;
-  text-align: left;
-}
-form label {
-  display: block;
-  margin-bottom: 10px;
-}
-form button {
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: #28a745;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-}
-form button:hover {
-  background: #218838;
-}
-/* Modal */
-.modal {
-  position: fixed;
-  top: 0; left: 0;
-  width: 100%; height: 100%;
-  background: rgba(0,0,0,0.7);
-  display: flex; justify-content: center; align-items: center;
-}
-.modal.hidden { display: none; }
-.modal-content {
-  background: #fff;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 500px;
-  text-align: left;
-}
-#fechar-modal {
-  float: right;
-  cursor: pointer;
-  font-size: 20px;
-}
-
-/* Formulário de Pedido */
+/* =========================
+   FORMULÁRIO DE PEDIDO (Clientes)
+========================= */
 #form-pedido {
   margin: 20px auto;
   max-width: 500px;
@@ -341,10 +232,6 @@ form button:hover {
 #form-pedido.hidden { display: none; }
 #form-pedido h2 {
   color: #800020;
-}
-#form-pedido label {
-  display: block;
-  margin-bottom: 10px;
 }
 #form-pedido input, #form-pedido select {
   width: 100%;
@@ -364,14 +251,4 @@ form button:hover {
 }
 #form-pedido button:hover {
   background: #a52a2a;
-}
-
-/* Prévia JSON */
-#json-preview {
-  margin: 20px;
-  padding: 15px;
-  background: #f4f4f4;
-  border-radius: 8px;
-  font-family: monospace;
-  white-space: pre-wrap;
 }
