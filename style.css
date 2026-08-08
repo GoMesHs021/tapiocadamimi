@@ -202,8 +202,14 @@ form button:hover {
   width: 100%; height: 100%;
   background: rgba(0,0,0,0.7);
   display: flex; justify-content: center; align-items: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-.modal.hidden { display: none; }
+.modal.show {
+  opacity: 1;
+  visibility: visible;
+}
 .modal-content {
   background: #fff;
   padding: 20px;
@@ -211,26 +217,40 @@ form button:hover {
   max-width: 500px;
   text-align: left;
   font-size: 16px;
-  max-height: 90vh; /* permite rolagem */
+  max-height: 90vh;
   overflow-y: auto;
+  transform: scale(0.9);
+  transition: transform 0.3s ease;
+}
+.modal.show .modal-content {
+  transform: scale(1); /* zoom-in suave */
 }
 #fechar-modal {
-  float: right;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #800020;
   cursor: pointer;
-  font-size: 20px;
+}
+#fechar-modal:hover {
+  color: #a52a2a;
 }
 
 /* Corrige imagens grandes dentro do modal */
 #detalhes-produto img {
   max-width: 100%;
+  max-height: 250px;
   height: auto;
   border-radius: 10px;
   display: block;
   margin: 0 auto 10px;
-  transition: transform 0.3s ease; /* efeito suave */
+  object-fit: cover;
+  transition: transform 0.3s ease;
 }
 #detalhes-produto img:hover {
-  transform: scale(1.05); /* zoom suave */
+  transform: scale(1.05);
 }
 
 /* =========================
@@ -291,22 +311,4 @@ form button:hover {
     font-size: 16px;
   }
 
-  #produtos, #lista-produtos {
-    flex-direction: column;
-    align-items: center;
-  }
-  .produto {
-    width: 90%;
-    margin-bottom: 20px;
-  }
-
-  .modal-content {
-    width: 95%;
-    font-size: 16px;
-  }
-
-  #form-pedido {
-    width: 95%;
-    font-size: 16px;
-  }
-}
+  #produtos
