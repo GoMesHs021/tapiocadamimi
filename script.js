@@ -45,7 +45,7 @@ function renderizarProdutosAdmin() {
             <img src="${produto.imagem}" alt="${produto.nome}" width="150">
             <h3>${produto.nome}</h3>
             <p>R$ ${produto.preco}</p>
-            <a href="https://wa.me/5521999999999?text=${encodeURIComponent(produto.mensagem)}" target="_blank">
+            <a href="https://wa.me/5521995714872?text=${encodeURIComponent(produto.mensagem)}" target="_blank">
                 Comprar pelo WhatsApp
             </a>
         `;
@@ -188,7 +188,7 @@ Endereço: ${endereco}
 WhatsApp do cliente: ${whatsapp}
         `;
 
-        window.open(`https://wa.me/5521999999999?text=${encodeURIComponent(mensagem)}`, '_blank');
+        window.open(`https://wa.me/5521995714872?text=${encodeURIComponent(mensagem)}`, '_blank');
     });
 }
 
