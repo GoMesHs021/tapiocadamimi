@@ -52,7 +52,6 @@ function renderizarProdutosAdmin() {
         container.appendChild(card);
     });
 
-    // Exclusão só no Admin
     document.querySelectorAll('.produto .excluir').forEach(btn => {
         btn.addEventListener('click', function() {
             let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
@@ -81,7 +80,6 @@ function renderizarAdicionaisAdmin() {
         container.appendChild(item);
     });
 
-    // Exclusão só no Admin
     document.querySelectorAll('.adicional .excluir').forEach(btn => {
         btn.addEventListener('click', function() {
             let adicionais = JSON.parse(localStorage.getItem('adicionais')) || [];
@@ -128,7 +126,6 @@ function renderizarProdutos() {
             `;
             container.appendChild(card);
 
-            // Cliente clica no card para abrir formulário
             card.addEventListener('click', () => {
                 abrirFormularioPedido(produto, data.adicionais);
             });
@@ -138,9 +135,13 @@ function renderizarProdutos() {
 
 // --- Formulário de Pedido (Clientes) ---
 function abrirFormularioPedido(produto, adicionais) {
-    const formArea = document.getElementById('pedido');
+    const modal = document.querySelector('.modal');
+    const formArea = document.querySelector('.modal-content');
+
     formArea.innerHTML = `
-        <h2>Pedido: ${produto.nome}</h2>
+        <span id="fechar-modal">&times;</span>
+        <h2>${produto.nome}</h2>
+        <img src="${produto.imagem}" alt="${produto.nome}" style="max-width:100%;max-height:250px;object-fit:cover;border-radius:10px;margin-bottom:10px;">
         <p>Preço base: R$ ${produto.preco}</p>
         
         <h3>Adicionais</h3>
@@ -173,6 +174,22 @@ function abrirFormularioPedido(produto, adicionais) {
         <button id="finalizar-pedido">Finalizar Pedido</button>
     `;
 
+    // Mostrar modal com efeito
+    modal.classList.add('show');
+
+    // Botão de fechar
+    document.getElementById('fechar-modal').addEventListener('click', () => {
+        modal.classList.remove('show');
+    });
+
+    // Fechar clicando fora
+    window.addEventListener('click', (e) => {
+        if (e.target === modal) {
+            modal.classList.remove('show');
+        }
+    });
+
+    // Finalizar pedido
     document.getElementById('finalizar-pedido').addEventListener('click', () => {
         const selecionados = [...document.querySelectorAll('.check-adicional:checked')].map(c => c.value);
         const pagamento = document.getElementById('pagamento').value;
