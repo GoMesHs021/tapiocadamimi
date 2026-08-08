@@ -38,7 +38,7 @@ function renderizarProdutosAdmin() {
   if (!container) return;
 
   container.innerHTML = '';
-  produtos.forEach(produto => {
+  produtos.forEach((produto, index) => {
     const card = document.createElement('div');
     card.className = 'produto';
     card.innerHTML = `
@@ -48,10 +48,23 @@ function renderizarProdutosAdmin() {
       <a href="https://wa.me/5521999999999?text=${encodeURIComponent(produto.mensagem)}" target="_blank">
         Comprar pelo WhatsApp
       </a>
+      <button class="excluir" data-index="${index}">Excluir</button>
     `;
     container.appendChild(card);
   });
+
+  // Eventos de exclusão
+  document.querySelectorAll('.excluir').forEach(btn => {
+    btn.addEventListener('click', function() {
+      let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
+      const idx = this.getAttribute('data-index');
+      produtos.splice(idx, 1); // remove pelo índice
+      localStorage.setItem('produtos', JSON.stringify(produtos));
+      renderizarProdutosAdmin(); // atualiza a lista
+    });
+  });
 }
+
 
 const form = document.getElementById('form-produto');
 if (form) {
