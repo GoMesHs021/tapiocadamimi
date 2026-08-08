@@ -6,55 +6,35 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <!-- Cabeçalho -->
   <header>
     <h1>Tapioca da Mimi</h1>
-    <p>Peça sua tapioca com praticidade!</p>
+    <p>Delícias de Tapioca</p>
   </header>
 
   <!-- Perfil -->
-  <div id="perfil"></div>
+  <section id="perfil">
+    <img src="perfil.jpg" alt="Perfil">
+    <p>Olá, bem-vindo à Tapioca da Mimi! Rio das Pedras - RJ<br>8:00 às 14:00</p>
+  </section>
 
-  <!-- Produtos -->
-  <div id="produtos"></div>
+  <!-- Lista de Produtos -->
+  <section id="produtos"></section>
 
-  <!-- Modal de Produto -->
-  <div id="modal-produto" class="modal hidden">
+  <!-- Área de Adicionais (Admin) -->
+  <section id="adicionais"></section>
+
+  <!-- Formulário de Pedido (Admin) -->
+  <section id="form-pedido" class="hidden"></section>
+
+  <!-- Modal de Pedido (Clientes) -->
+  <div class="modal">
     <div class="modal-content">
-      <span id="fechar-modal">&times;</span>
-      <div id="detalhes-produto"></div>
-      <div id="opcoes-adicionais"></div>
-      <button id="btn-finalizar">Finalizar Pedido</button>
+      <!-- O script.js vai injetar aqui o conteúdo do pedido -->
     </div>
   </div>
 
-  <!-- Formulário de Pedido -->
-  <div id="form-pedido" class="hidden">
-    <h2>Finalizar Pedido</h2>
-    <form id="pedido-form">
-      <label>Nome: <input type="text" id="cliente-nome" required></label><br>
-      <label>Telefone: <input type="text" id="cliente-telefone" required></label><br>
-      <label>Endereço: <input type="text" id="cliente-endereco" required></label><br>
-      <label>Número: <input type="text" id="cliente-numero" required></label><br>
-      <label>Forma de pagamento:
-        <select id="cliente-pagamento" required>
-          <option value="Pix">Pix</option>
-          <option value="Cartão">Cartão</option>
-          <option value="Dinheiro">Dinheiro</option>
-        </select>
-      </label><br>
-      <div id="troco-opcao" class="hidden">
-        <label>Precisa de troco?
-          <select id="cliente-troco">
-            <option value="Sim">Sim</option>
-            <option value="Não">Não</option>
-          </select>
-        </label>
-      </div>
-      <button type="submit">Enviar Pedido</button>
-    </form>
-  </div>
-
   <!-- Scripts -->
-  <script src="script-clientes.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>
