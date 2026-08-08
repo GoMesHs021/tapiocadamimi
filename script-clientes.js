@@ -1,20 +1,19 @@
-// --- Renderizar Perfil para Clientes ---
+// --- Renderizar Perfil ---
 function renderizarPerfil(perfil) {
-    const container = document.getElementById('perfil');
-    if (!container) return;
-    container.innerHTML = `
-        <img src="${perfil.foto}" alt="Foto da Mimi">
-        <div>
-            <p>${perfil.mensagem}</p>
-            <p>📍 ${perfil.localizacao}</p>
-            <p>🕒 Entregas: ${perfil.horario}</p>
-            <p>🚗 Área de entrega: ${perfil.area}</p>
-        </div>
-    `;
+  const container = document.getElementById('perfil');
+  if (!container) return;
+  container.innerHTML = `
+    <img src="${perfil.foto}" alt="Foto da Mimi">
+    <div>
+      <p>${perfil.mensagem}</p>
+      <p>📍 ${perfil.localizacao}</p>
+      <p>🕒 Entregas: ${perfil.horario}</p>
+      <p>🚗 Área de entrega: ${perfil.area}</p>
+    </div>
+  `;
 }
 
-// --- Renderizar Produtos para Clientes ---
-// Renderizar produtos
+// --- Renderizar Produtos ---
 function renderizarProdutos(data) {
   const container = document.getElementById('produtos');
   container.innerHTML = '';
@@ -31,7 +30,7 @@ function renderizarProdutos(data) {
   });
 }
 
-// Abrir modal com detalhes e adicionais
+// --- Abrir Modal ---
 function abrirModal(produto, adicionais) {
   const modal = document.getElementById('modal-produto');
   const detalhes = document.getElementById('detalhes-produto');
@@ -61,12 +60,12 @@ function abrirModal(produto, adicionais) {
   };
 }
 
-// Fechar modal
+// --- Fechar Modal ---
 document.getElementById('fechar-modal').onclick = () => {
   document.getElementById('modal-produto').classList.add('hidden');
 };
 
-// Mostrar opção de troco se pagamento for dinheiro
+// --- Mostrar opção de troco ---
 document.getElementById('cliente-pagamento').addEventListener('change', e => {
   if (e.target.value === 'Dinheiro') {
     document.getElementById('troco-opcao').classList.remove('hidden');
@@ -75,7 +74,7 @@ document.getElementById('cliente-pagamento').addEventListener('change', e => {
   }
 });
 
-// Enviar pedido
+// --- Enviar Pedido ---
 document.getElementById('pedido-form').addEventListener('submit', e => {
   e.preventDefault();
   const nome = document.getElementById('cliente-nome').value;
@@ -98,11 +97,12 @@ Adicionais: ${adicionaisSelecionados || 'Nenhum'}`;
 
   window.open(`https://wa.me/5521995714872?text=${encodeURIComponent(mensagem)}`, '_blank');
 });
+
 // --- Carregar dados do JSON ---
 fetch('data.json')
   .then(res => res.json())
   .then(data => {
-      renderizarPerfil(data.perfil);   // mostra o perfil
-      renderizarProdutos(data);        // mostra os produtos
+    renderizarPerfil(data.perfil);
+    renderizarProdutos(data);
   })
   .catch(err => console.error("Erro ao carregar data.json:", err));
