@@ -1,16 +1,22 @@
 {
   "produtos": [
     {
-      "nome": "Tapioca de Coco 🥥",
-      "preco": "8,00",
+      "nome": "Tapioca de Coco",
+      "preco": "8.00",
       "imagem": "https://tse1.mm.bing.net/th/id/OIP.OKAgL59iKqswt9DQiB_yZQHaEw?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
-      "mensagem": "Quero essa tapioca de coco"
-    },
-    {
-      "nome": "Tapioca de Coco 🥥",
-      "preco": "8,00",
-      "imagem": "https://tse1.mm.bing.net/th/id/OIP.OKAgL59iKqswt9DQiB_yZQHaEw?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
-      "mensagem": "Quero essa tapioca de coco"
+      "mensagem": "Quero comprar a Tapioca de Coco"
     }
+  ],
+  "adicionais": [
+    { "nome": "Ovo", "preco": "2.00" },
+    { "nome": "Canela", "preco": "3.00" },
+    { "nome": "Leite condensado", "preco": "4.00" },
+    { "nome": "Mussarela", "preco": "5.00" },
+    { "nome": "Presunto", "preco": "2.00" },
+    { "nome": "Calabresa", "preco": "5.00" },
+    { "nome": "Queijo coalho", "preco": "5.00" },
+    { "nome": "Manteiga", "preco": "2.00" },
+    { "nome": "Cream Cheese", "preco": "5.00" },
+    { "nome": "Frango", "preco": "5.00" }
   ]
 }
