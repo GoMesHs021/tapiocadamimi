@@ -2,48 +2,41 @@
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
-    <title>Admin - Tapioca da Mimi</title>
+    <title>Painel Admin - Tapioca da Mimi</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-<header>
-    <h1>Painel Administrativo</h1>
-    <p>Adicione novos produtos e adicionais ao cardápio</p>
-</header>
+    <h1>Painel Admin - Tapioca da Mimi</h1>
 
-<!-- Formulário de Produtos -->
-<h2>Adicionar produto</h2>
-<form id="form-produto">
-    <input type="text" id="nome" placeholder="Nome do produto" required>
-    <input type="text" id="preco" placeholder="Preço" required>
-    <input type="text" id="imagem" placeholder="URL da imagem" required>
-    <input type="text" id="mensagem" placeholder="Mensagem do WhatsApp" required>
-    <button type="submit">Adicionar Produto</button>
-</form>
+    <!-- Formulário de Perfil -->
+    <h2>Editar Perfil</h2>
+    <form id="form-perfil">
+        <label>Foto (URL): <input type="text" id="perfil-foto"></label><br>
+        <label>Mensagem: <input type="text" id="perfil-mensagem"></label><br>
+        <label>Localização: <input type="text" id="perfil-localizacao"></label><br>
+        <label>Horário: <input type="text" id="perfil-horario"></label><br>
+        <label>Área de entrega: <input type="text" id="perfil-area"></label><br>
+        <button type="submit">Salvar Perfil</button>
+    </form>
 
-<!-- Formulário de Adicionais -->
-<h2>Adicionar adicional</h2>
-<form id="form-adicional">
-    <input type="text" id="nome-adicional" placeholder="Nome do adicional" required>
-    <input type="text" id="preco-adicional" placeholder="Preço" required>
-    <button type="submit">Adicionar adicional</button>
-</form>
+    <!-- Formulário de Produtos -->
+    <h2>Adicionar Produto</h2>
+    <form id="form-produto">
+        <label>Nome: <input type="text" id="produto-nome"></label><br>
+        <label>Preço: <input type="text" id="produto-preco"></label><br>
+        <label>Imagem (URL): <input type="text" id="produto-imagem"></label><br>
+        <label>Mensagem: <input type="text" id="produto-mensagem"></label><br>
+        <button type="submit">Adicionar Produto</button>
+    </form>
 
-<!-- Botão para exportar JSON -->
-<button id="exportar-json">Exportar JSON</button>
+    <!-- Formulário de Adicionais -->
+    <h2>Adicionar Adicional</h2>
+    <form id="form-adicional">
+        <label>Nome: <input type="text" id="adicional-nome"></label><br>
+        <label>Preço: <input type="text" id="adicional-preco"></label><br>
+        <button type="submit">Adicionar Adicional</button>
+    </form>
 
-<!-- Área para visualizar os produtos cadastrados -->
-<h2>Produtos cadastrados</h2>
-<section id="produtos"></section>
-
-<!-- Área para visualizar os adicionais cadastrados -->
-<h2>Adicionais cadastrados</h2>
-<section id="adicionais"></section>
-
-<!-- Área separada para prévia do JSON -->
-<h2>Prévia do JSON exportado</h2>
-<section id="json-preview"></section>
-
-<script src="script-admin.js"></script>
+    <script src="script-admin.js"></script>
 </body>
 </html>
