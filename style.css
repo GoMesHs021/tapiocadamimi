@@ -9,7 +9,6 @@ body {
   color: #333;
   font-size: 16px;
   line-height: 1.5;
-  text-align: center;
 }
 
 /* Cabeçalho */
@@ -17,209 +16,120 @@ header {
   background-color: #800020;
   color: #fff;
   text-align: center;
-  padding: 30px 20px;
+  padding: 25px 15px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.3);
 }
 header h1 {
   margin: 0;
-  font-size: 2.4em;
+  font-size: 2em;
 }
 header p {
   margin: 5px 0 0;
-  font-size: 1.3em;
+  font-size: 1.1em;
 }
 
 /* =========================
-   PERFIL (Clientes/Admin)
+   PERFIL
 ========================= */
 #perfil {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin: 20px auto;
-  padding: 20px;
+  margin: 15px auto;
+  padding: 15px;
   background-color: #fff3e0;
-  border-radius: 10px;
-  max-width: 900px;
+  border-radius: 12px;
+  max-width: 95%;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-  text-align: left;
 }
 #perfil img {
-  width: 120px;
-  height: 120px;
+  width: 100px;
+  height: 100px;
   border-radius: 50%;
-  margin-right: 20px;
-  border: 3px solid #a52a2a;
+  margin-right: 15px;
+  border: 3px solid #800020;
 }
 .info-perfil h2 {
-  margin: 0 0 10px;
+  margin: 0 0 8px;
   color: #800020;
-  font-size: 1.6em;
+  font-size: 1.4em;
 }
 .info-perfil p {
-  margin: 4px 0;
-  font-size: 1.1em;
+  margin: 3px 0;
+  font-size: 1em;
   color: #333;
 }
 
-/* Responsividade: no celular a foto fica em cima e maior */
+/* Mobile: foto em cima e maior */
 @media (max-width: 768px) {
   #perfil {
     flex-direction: column;
     text-align: center;
-    padding: 25px;
   }
   #perfil img {
-    width: 150px;
-    height: 150px;
-    margin: 0 0 15px;
+    width: 140px;
+    height: 140px;
+    margin: 0 0 12px;
   }
   .info-perfil h2 {
-    font-size: 1.8em;
+    font-size: 1.6em;
   }
   .info-perfil p {
-    font-size: 1.3em;
+    font-size: 1.2em;
   }
-}
-
-/* =========================
-   FORMULÁRIOS (Admin)
-========================= */
-form {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  justify-content: center;
-  margin: 20px;
-  text-align: left;
-}
-form label {
-  display: block;
-  margin-bottom: 10px;
-}
-form input, form select {
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 6px;
-  flex: 1 1 200px;
-  font-size: 16px;
-}
-form button {
-  background-color: #800020;
-  color: #fff;
-  border: none;
-  padding: 14px 24px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-  font-size: 16px;
-}
-form button:hover {
-  background-color: #a52a2a;
-}
-
-/* Botão exportar */
-#exportar-json {
-  display: block;
-  margin: 20px auto;
-  background-color: #800020;
-  color: #fff;
-  border: none;
-  padding: 14px 24px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-  font-size: 16px;
-}
-#exportar-json:hover {
-  background-color: #a52a2a;
 }
 
 /* =========================
    PRODUTOS
 ========================= */
-#produtos, #lista-produtos {
+#produtos {
   display: flex;
-  flex-wrap: wrap;
-  gap: 20px;
-  justify-content: center;
-  margin: 20px;
+  flex-direction: column;
+  gap: 15px;
+  margin: 15px;
 }
 .produto {
-  position: relative;
   background: #fff;
-  border: 1px solid #ddd;
-  border-radius: 10px;
+  border: 2px solid #800020;
+  border-radius: 12px;
   padding: 15px;
-  width: 220px;
   text-align: center;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
   transition: transform 0.2s;
-  cursor: pointer;
 }
 .produto:hover {
-  transform: translateY(-5px);
+  transform: scale(1.02);
 }
 .produto img {
-  max-width: 100%;
-  border-radius: 8px;
+  width: 100%;
+  max-height: 200px;
+  object-fit: cover;
+  border-radius: 10px;
 }
 .produto h3 {
   margin: 10px 0 5px;
   color: #800020;
-  font-size: 1.2em;
+  font-size: 1.4em;
 }
 .produto p {
   font-weight: bold;
   margin: 5px 0;
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 .produto button {
   margin-top: 10px;
   background-color: #800020;
   color: #fff;
   border: none;
-  padding: 10px 16px;
-  border-radius: 6px;
+  padding: 14px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s;
-  font-size: 15px;
+  font-size: 1.1em;
+  width: 100%;
 }
 .produto button:hover {
   background-color: #a52a2a;
-}
-
-/* =========================
-   ADICIONAIS
-========================= */
-#adicionais {
-  margin: 20px;
-  text-align: left;
-}
-#adicionais .adicional {
-  margin: 6px 0;
-  padding: 6px;
-  border-bottom: 1px solid #eee;
-  color: #800020;
-  font-weight: 500;
-  font-size: 1.1em;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-#adicionais .adicional:last-child {
-  border-bottom: none;
-}
-#adicionais .adicional button {
-  background-color: #ccc;
-  color: #333;
-  border: none;
-  padding: 6px 12px;
-  border-radius: 6px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-#adicionais .adicional button:hover {
-  background-color: #999;
 }
 
 /* =========================
@@ -242,8 +152,9 @@ form button:hover {
 .modal-content {
   background: #fff;
   padding: 20px;
-  border-radius: 10px;
-  max-width: 500px;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 400px;
   text-align: left;
   font-size: 16px;
   max-height: 90vh;
@@ -252,13 +163,13 @@ form button:hover {
   transition: transform 0.3s ease;
 }
 .modal.show .modal-content {
-  transform: scale(1); /* zoom-in suave */
+  transform: scale(1);
 }
 #fechar-modal {
   position: absolute;
   top: 10px;
   right: 15px;
-  font-size: 24px;
+  font-size: 26px;
   font-weight: bold;
   color: #800020;
   cursor: pointer;
@@ -267,30 +178,15 @@ form button:hover {
   color: #a52a2a;
 }
 
-/* Corrige imagens grandes dentro do modal */
-.modal-content img {
-  max-width: 100%;
-  max-height: 250px;
-  height: auto;
-  border-radius: 10px;
-  display: block;
-  margin: 0 auto 10px;
-  object-fit: cover;
-  transition: transform 0.3s ease;
-}
-.modal-content img:hover {
-  transform: scale(1.05);
-}
-
 /* =========================
    FORMULÁRIO DE PEDIDO
 ========================= */
 #form-pedido {
   margin: 20px auto;
-  max-width: 500px;
+  max-width: 95%;
   background: #fff;
   padding: 20px;
-  border-radius: 10px;
+  border-radius: 12px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
   font-size: 16px;
 }
@@ -300,18 +196,24 @@ form button:hover {
 }
 #form-pedido input, #form-pedido select {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ccc;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 16px;
+  margin-bottom: 10px;
 }
 #form-pedido button {
   margin-top: 15px;
-  padding: 12px 20px;
+  padding: 14px;
   background: #800020;
   color: #fff;
   border: none;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
   transition: background 0.3s;
-  font-size: 16
+  font-size: 1.1em;
+  width: 100%;
+}
+#form-pedido button:hover {
+  background: #a52a2a;
+}
