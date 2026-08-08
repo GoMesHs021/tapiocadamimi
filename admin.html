@@ -6,7 +6,10 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Painel Admin - Tapioca da Mimi</h1>
+    <header>
+        <h1>Painel Admin - Tapioca da Mimi</h1>
+        <p>Gerencie perfil, produtos e adicionais</p>
+    </header>
 
     <!-- Formulário de Perfil -->
     <h2>Editar Perfil</h2>
@@ -18,6 +21,21 @@
         <label>Área de entrega: <input type="text" id="perfil-area"></label><br>
         <button type="submit">Salvar Perfil</button>
     </form>
+
+    <!-- Prévia do Perfil -->
+    <h2>Perfil Atual</h2>
+    <div id="preview-perfil"></div>
+
+    <!-- Produtos -->
+    <h2>Produtos Cadastrados</h2>
+    <div id="lista-produtos"></div>
+
+    <!-- Adicionais -->
+    <h2>Adicionais Cadastrados</h2>
+    <div id="lista-adicionais"></div>
+
+    <!-- Exportar JSON -->
+    <button id="exportar-json">Exportar JSON</button>
 
     <!-- Formulário de Produtos -->
     <h2>Adicionar Produto</h2>
