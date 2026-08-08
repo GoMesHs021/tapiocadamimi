@@ -33,11 +33,43 @@
   <section id="form-pedido" class="hidden"></section>
 
   <!-- Modal de Pedido (Clientes) -->
-  <div class="modal">
-    <div class="modal-content">
-      <!-- O script.js vai injetar aqui o conteúdo do pedido -->
+<div class="modal">
+  <div class="modal-content">
+    <span id="fechar-modal">&times;</span>
+    <div id="detalhes-produto">
+      <!-- O script.js injeta aqui os detalhes do produto -->
     </div>
+    <form id="form-pedido">
+      <h2>Finalizar Pedido</h2>
+
+      <h3>Adicionais</h3>
+      <div id="lista-adicionais">
+        <!-- checkboxes injetados pelo script.js -->
+      </div>
+
+      <h3>Forma de pagamento</h3>
+      <select id="pagamento">
+        <option value="Pix">Pix</option>
+        <option value="Dinheiro">Dinheiro</option>
+        <option value="Cartão">Cartão</option>
+      </select>
+
+      <h3>Precisa de troco?</h3>
+      <select id="troco">
+        <option value="Não">Não</option>
+        <option value="Sim">Sim</option>
+      </select>
+
+      <h3>Endereço de entrega</h3>
+      <input type="text" id="endereco" placeholder="Rua e número" required>
+
+      <h3>Seu WhatsApp</h3>
+      <input type="text" id="whatsapp" placeholder="(DDD) 99999-9999" required>
+
+      <button id="finalizar-pedido">Finalizar Pedido</button>
+    </form>
   </div>
+</div>
 
   <!-- Scripts -->
   <script src="script.js"></script>
