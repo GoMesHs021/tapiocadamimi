@@ -61,14 +61,23 @@ header p {
   color: #333;
 }
 
-/* Responsividade: no celular a foto fica em cima */
+/* Responsividade: no celular a foto fica em cima e maior */
 @media (max-width: 768px) {
   #perfil {
     flex-direction: column;
     text-align: center;
+    padding: 25px;
   }
   #perfil img {
+    width: 150px;
+    height: 150px;
     margin: 0 0 15px;
+  }
+  .info-perfil h2 {
+    font-size: 1.8em;
+  }
+  .info-perfil p {
+    font-size: 1.3em;
   }
 }
 
@@ -305,21 +314,4 @@ form button:hover {
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s;
-  font-size: 16px;
-}
-#form-pedido button:hover {
-  background: #a52a2a;
-}
-
-/* =========================
-   RESPONSIVIDADE MOBILE
-========================= */
-@media (max-width: 768px) {
-  header h1 {
-    font-size: 1.8em;
-  }
-  header p {
-    font-size: 1.1em;
-  }
-  .produto {
-    width: 
+  font-size: 16
