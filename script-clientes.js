@@ -25,11 +25,17 @@ function renderizarProdutos(data) {
             <img src="${produto.imagem}" alt="${produto.nome}">
             <h3>${produto.nome}</h3>
             <p>Preço: R$ ${produto.preco}</p>
-            <button onclick="abrirPedido('${produto.mensagem}')">Pedir pelo WhatsApp</button>
         `;
+
+        // --- Clique no card inteiro abre o pedido ---
+        card.addEventListener('click', () => {
+            abrirPedido(produto.mensagem);
+        });
+
         container.appendChild(card);
     });
 }
+
 
 // --- Abrir Pedido ---
 function abrirPedido(mensagem) {
