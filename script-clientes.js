@@ -76,7 +76,7 @@ Endereço: ${endereco}
 WhatsApp do cliente: ${whatsapp}
         `;
 
-        window.open(`https://wa.me/5521999999999?text=${encodeURIComponent(mensagem)}`, '_blank');
+        window.open(`https://wa.me/5521995714872?text=${encodeURIComponent(mensagem)}`, '_blank');
     });
 }
 
