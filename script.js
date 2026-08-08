@@ -69,7 +69,6 @@ if (form) {
 
     renderizarProdutosAdmin(); // mostra na tela
     e.target.reset();
-    alert("Produto adicionado! Veja abaixo na lista.");
   });
 
   // Renderiza ao abrir o admin
