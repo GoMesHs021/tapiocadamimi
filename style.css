@@ -17,3 +17,26 @@ body {
 .produto img {
   border-radius: 8px;
 }
+footer {
+  background: #f4e1d2;
+  padding: 20px;
+  text-align: center;
+  margin-top: 40px;
+  border-top: 2px solid #d4a373;
+}
+
+footer a {
+  color: #d45a00;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+.footer-container p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+Adiciona rodapé estilizado
