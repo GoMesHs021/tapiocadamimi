@@ -87,10 +87,10 @@ if (exportarBtn) {
       alert("JSON copiado para a área de transferência!");
     });
 
-    // Mostra na tela para conferência
-    const container = document.getElementById('produtos');
-    if (container) {
-      container.innerHTML = "<pre>" + jsonPronto + "</pre>";
+    // Mostra na área de prévia
+    const preview = document.getElementById('json-preview');
+    if (preview) {
+      preview.innerHTML = "<pre>" + jsonPronto + "</pre>";
     }
   });
 }
