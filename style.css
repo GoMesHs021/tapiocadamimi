@@ -227,6 +227,10 @@ form button:hover {
   border-radius: 10px;
   display: block;
   margin: 0 auto 10px;
+  transition: transform 0.3s ease; /* efeito suave */
+}
+#detalhes-produto img:hover {
+  transform: scale(1.05); /* zoom suave */
 }
 
 /* =========================
@@ -256,4 +260,53 @@ form button:hover {
   margin-top: 15px;
   padding: 12px 20px;
   background: #800020;
-  color
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+  font-size: 16px;
+}
+#form-pedido button:hover {
+  background: #a52a2a;
+}
+
+/* =========================
+   RESPONSIVIDADE MOBILE
+========================= */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.6em;
+  }
+  header p {
+    font-size: 1.1em;
+  }
+
+  form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  form input, form select, form button {
+    flex: 1 1 100%;
+    font-size: 16px;
+  }
+
+  #produtos, #lista-produtos {
+    flex-direction: column;
+    align-items: center;
+  }
+  .produto {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .modal-content {
+    width: 95%;
+    font-size: 16px;
+  }
+
+  #form-pedido {
+    width: 95%;
+    font-size: 16px;
+  }
+}
