@@ -28,7 +28,7 @@ function renderizarProdutos(data) {
             <button>Pedir pelo WhatsApp</button>
         `;
 
-        // Clique no card inteiro
+        // Clique no card inteiro abre o pedido
         card.addEventListener('click', () => {
             abrirPedido(produto.mensagem);
         });
@@ -42,9 +42,6 @@ function renderizarProdutos(data) {
         container.appendChild(card);
     });
 }
-
-
-
 // --- Abrir Pedido ---
 function abrirPedido(mensagem) {
     const container = document.getElementById('pedido');
