@@ -25,16 +25,24 @@ function renderizarProdutos(data) {
             <img src="${produto.imagem}" alt="${produto.nome}">
             <h3>${produto.nome}</h3>
             <p>Preço: R$ ${produto.preco}</p>
+            <button>Pedir pelo WhatsApp</button>
         `;
 
-        // --- Clique no card inteiro abre o pedido ---
+        // Clique no card inteiro
         card.addEventListener('click', () => {
+            abrirPedido(produto.mensagem);
+        });
+
+        // Clique no botão (sem conflito com o card)
+        card.querySelector('button').addEventListener('click', e => {
+            e.stopPropagation();
             abrirPedido(produto.mensagem);
         });
 
         container.appendChild(card);
     });
 }
+
 
 
 // --- Abrir Pedido ---
@@ -44,7 +52,7 @@ function abrirPedido(mensagem) {
     container.innerHTML = `
         <h2>Finalizar Pedido</h2>
         <p>${mensagem}</p>
-        <a href="https://wa.me/5521999999999?text=${encodeURIComponent(mensagem)}" target="_blank">
+        <a href="https://wa.me/5521995714872?text=${encodeURIComponent(mensagem)}" target="_blank">
             Enviar pelo WhatsApp
         </a>
     `;
