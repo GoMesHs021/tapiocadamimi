@@ -1,10 +1,10 @@
 {
   "perfil": {
-    "foto": "https://i.pinimg.com/736x/b1/e8/24/b1e824005398e3bbd544f84e9fa4c72a.jpg",
-    "mensagem": "Olá, bem-vindo à Tapioca da Mimi!",
-    "localizacao": "Rio das Pedras - RJ",
-    "horario": "8:00 às 14:00",
-    "area": "Somente no Rio das Pedras"
+    "foto": "https://tse1.mm.bing.net/th/id/OIP.mTr5td5s253C6KIEscbmvwHaE8?r=0&rs=1&pid=ImgDetMain&o=7&rm=3",
+    "mensagem": "",
+    "localizacao": "",
+    "horario": "",
+    "area": ""
   },
   "produtos": [
     {
@@ -17,6 +17,12 @@
       "nome": "Tapioca de Coco 🥥",
       "preco": "8,00",
       "imagem": "https://tse1.mm.bing.net/th/id/OIP.OKAgL59iKqswt9DQiB_yZQHaEw",
+      "mensagem": "Gostaria de fazer esse pedido!"
+    },
+    {
+      "nome": "Tapioca de manteiga",
+      "preco": "6,00",
+      "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
       "mensagem": "Gostaria de fazer esse pedido!"
     }
   ],
