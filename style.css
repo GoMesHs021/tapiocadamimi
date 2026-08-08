@@ -6,19 +6,6 @@ body {
   background-color: #fafafa;
   color: #333;
 }
-#info {
-  background-color: #f4f4f4;
-  border-left: 5px solid #800020;
-  margin: 20px auto;
-  padding: 15px;
-  max-width: 600px;
-  border-radius: 8px;
-  font-size: 1.1em;
-}
-
-#info p {
-  margin: 8px 0;
-}
 
 /* Cabeçalho */
 header {
@@ -84,7 +71,19 @@ form button:hover {
 #exportar-json:hover {
   background-color: #a52a2a;
 }
+#info {
+  background-color: #f4f4f4;
+  border-left: 5px solid #800020;
+  margin: 20px auto;
+  padding: 15px;
+  max-width: 600px;
+  border-radius: 8px;
+  font-size: 1.1em;
+}
 
+#info p {
+  margin: 8px 0;
+}
 /* Produtos */
 #produtos {
   display: flex;
