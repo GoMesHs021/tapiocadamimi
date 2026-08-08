@@ -1,3 +1,35 @@
+// --- Cadastro de Produtos ---
+const formProduto = document.getElementById('form-produto');
+if (formProduto) {
+    formProduto.addEventListener('submit', function(e) {
+        e.preventDefault();
+        let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
+        const nome = document.getElementById('nome').value;
+        const preco = document.getElementById('preco').value;
+        const imagem = document.getElementById('imagem').value;
+        const mensagem = document.getElementById('mensagem').value;
+        produtos.push({ nome, preco, imagem, mensagem });
+        localStorage.setItem('produtos', JSON.stringify(produtos));
+        renderizarProdutosAdmin();
+        formProduto.reset();
+    });
+}
+
+// --- Cadastro de Adicionais ---
+const formAdicional = document.getElementById('form-adicional');
+if (formAdicional) {
+    formAdicional.addEventListener('submit', function(e) {
+        e.preventDefault();
+        let adicionais = JSON.parse(localStorage.getItem('adicionais')) || [];
+        const nome = document.getElementById('nome-adicional').value;
+        const preco = document.getElementById('preco-adicional').value;
+        adicionais.push({ nome, preco });
+        localStorage.setItem('adicionais', JSON.stringify(adicionais));
+        renderizarAdicionaisAdmin();
+        formAdicional.reset();
+    });
+}
+
 // --- Renderizar Produtos no Admin ---
 function renderizarProdutosAdmin() {
     let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
@@ -78,50 +110,6 @@ if (exportarBtn) {
     });
 }
 
-// --- Renderizar Produtos para Clientes ---
-function renderizarProdutos() {
-    fetch('data.json')
-    .then(res => res.json())
-    .then(data => {
-        const container = document.getElementById('produtos');
-        if (!container) return;
-        container.innerHTML = '';
-        data.produtos.forEach(produto => {
-            const card = document.createElement('div');
-            card.className = 'produto';
-            card.innerHTML = `
-                <img src="${produto.imagem}" alt="${produto.nome}">
-                <h3>${produto.nome}</h3>
-                <p>R$ ${produto.preco}</p>
-                <a href="https://wa.me/5521999999999?text=${encodeURIComponent(produto.mensagem)}" target="_blank">
-                    Comprar pelo WhatsApp
-                </a>
-                <button class="mostrar-adicionais">+ Adicionais</button>
-                <ul class="lista-adicionais"></ul>
-            `;
-            container.appendChild(card);
-
-            // Toggle da lista de adicionais
-            const btn = card.querySelector('.mostrar-adicionais');
-            const lista = card.querySelector('.lista-adicionais');
-            btn.addEventListener('click', () => {
-                if (lista.style.display === 'block') {
-                    lista.style.display = 'none';
-                } else {
-                    lista.innerHTML = '';
-                    data.adicionais.forEach(add => {
-                        const li = document.createElement('li');
-                        li.textContent = `${add.nome} - R$ ${add.preco}`;
-                        lista.appendChild(li);
-                    });
-                    lista.style.display = 'block';
-                }
-            });
-        });
-    });
-}
-
 // --- Inicialização ---
 renderizarProdutosAdmin();
 renderizarAdicionaisAdmin();
-renderizarProdutos();
