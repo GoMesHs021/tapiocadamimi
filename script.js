@@ -1,4 +1,4 @@
-// --- Cadastro de Produtos ---
+// --- Cadastro de Produtos (Admin) ---
 const formProduto = document.getElementById('form-produto');
 if (formProduto) {
     formProduto.addEventListener('submit', function(e) {
@@ -15,7 +15,7 @@ if (formProduto) {
     });
 }
 
-// --- Cadastro de Adicionais ---
+// --- Cadastro de Adicionais (Admin) ---
 const formAdicional = document.getElementById('form-adicional');
 if (formAdicional) {
     formAdicional.addEventListener('submit', function(e) {
@@ -45,14 +45,14 @@ function renderizarProdutosAdmin() {
             <img src="${produto.imagem}" alt="${produto.nome}" width="150">
             <h3>${produto.nome}</h3>
             <p>R$ ${produto.preco}</p>
-            <a href="https://wa.me/5521995714872?text=${encodeURIComponent(produto.mensagem)}" target="_blank">
+            <a href="https://wa.me/5521999999999?text=${encodeURIComponent(produto.mensagem)}" target="_blank">
                 Comprar pelo WhatsApp
             </a>
         `;
         container.appendChild(card);
     });
 
-    // Eventos de exclusão de produtos
+    // Exclusão só no Admin
     document.querySelectorAll('.produto .excluir').forEach(btn => {
         btn.addEventListener('click', function() {
             let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
@@ -81,7 +81,7 @@ function renderizarAdicionaisAdmin() {
         container.appendChild(item);
     });
 
-    // Eventos de exclusão de adicionais
+    // Exclusão só no Admin
     document.querySelectorAll('.adicional .excluir').forEach(btn => {
         btn.addEventListener('click', function() {
             let adicionais = JSON.parse(localStorage.getItem('adicionais')) || [];
@@ -93,7 +93,7 @@ function renderizarAdicionaisAdmin() {
     });
 }
 
-// --- Exportar JSON ---
+// --- Exportar JSON (Admin) ---
 const exportarBtn = document.getElementById('exportar-json');
 if (exportarBtn) {
     exportarBtn.addEventListener('click', function() {
@@ -128,7 +128,7 @@ function renderizarProdutos() {
             `;
             container.appendChild(card);
 
-            // Evento: clicar no card abre formulário
+            // Cliente clica no card para abrir formulário
             card.addEventListener('click', () => {
                 abrirFormularioPedido(produto, data.adicionais);
             });
@@ -136,8 +136,7 @@ function renderizarProdutos() {
     });
 }
 
-
-// --- Formulário de Pedido ---
+// --- Formulário de Pedido (Clientes) ---
 function abrirFormularioPedido(produto, adicionais) {
     const formArea = document.getElementById('pedido');
     formArea.innerHTML = `
@@ -174,7 +173,6 @@ function abrirFormularioPedido(produto, adicionais) {
         <button id="finalizar-pedido">Finalizar Pedido</button>
     `;
 
-    // Evento de finalizar pedido
     document.getElementById('finalizar-pedido').addEventListener('click', () => {
         const selecionados = [...document.querySelectorAll('.check-adicional:checked')].map(c => c.value);
         const pagamento = document.getElementById('pagamento').value;
@@ -190,7 +188,7 @@ Endereço: ${endereco}
 WhatsApp do cliente: ${whatsapp}
         `;
 
-        window.open(`https://wa.me/5521995714872?text=${encodeURIComponent(mensagem)}`, '_blank');
+        window.open(`https://wa.me/5521999999999?text=${encodeURIComponent(mensagem)}`, '_blank');
     });
 }
 
