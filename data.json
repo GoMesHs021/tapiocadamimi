@@ -1,17 +1,16 @@
 {
   "produtos": [
     {
-      "nome": "Tapioca Tradicional",
-      "preco": 8.00,
-      "imagem": "uploads/tapioca1.jpg",
-      "categoria": "Clássicos"
+      "nome": "Tapioca de Coco",
+      "preco": "8.00",
+      "imagem": "img/tapioca-coco.jpg",
+      "mensagem": "Quero comprar a Tapioca de Coco"
     },
     {
-      "nome": "Tapioca com Queijo",
-      "preco": 10.00,
-      "imagem": "uploads/tapioca2.jpg",
-      "categoria": "Clássicos"
+      "nome": "Tapioca Tradicional",
+      "preco": "4.00",
+      "imagem": "img/tapioca-tradicional.jpg",
+      "mensagem": "Quero comprar a Tapioca Tradicional"
     }
-  ],
-  "whatsapp": "5521999999999"
+  ]
 }
