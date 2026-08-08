@@ -1,6 +1,7 @@
 function renderizarProdutos() {
   let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
   const container = document.getElementById('produtos');
+  if (!container) return; // segurança caso não exista a seção
   container.innerHTML = '';
 
   produtos.forEach(produto => {
@@ -19,24 +20,25 @@ function renderizarProdutos() {
   });
 }
 
-// Renderiza ao carregar
 renderizarProdutos();
 
-// Captura o formulário
-document.getElementById('form-produto').addEventListener('submit', function(e) {
-  e.preventDefault();
+// Só ativa o formulário se existir (admin.html)
+const form = document.getElementById('form-produto');
+if (form) {
+  form.addEventListener('submit', function(e) {
+    e.preventDefault();
 
-  const nome = document.getElementById('nome').value;
-  const preco = document.getElementById('preco').value;
-  const imagem = document.getElementById('imagem').value;
-  const mensagem = document.getElementById('mensagem').value;
+    const nome = document.getElementById('nome').value;
+    const preco = document.getElementById('preco').value;
+    const imagem = document.getElementById('imagem').value;
+    const mensagem = document.getElementById('mensagem').value;
 
-  let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
+    let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
+    produtos.push({ nome, preco, imagem, mensagem });
 
-  produtos.push({ nome, preco, imagem, mensagem });
+    localStorage.setItem('produtos', JSON.stringify(produtos));
 
-  localStorage.setItem('produtos', JSON.stringify(produtos));
-
-  renderizarProdutos();
-  e.target.reset();
-});
+    renderizarProdutos();
+    e.target.reset();
+  });
+}
