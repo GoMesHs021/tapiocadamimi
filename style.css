@@ -7,6 +7,8 @@ body {
   padding: 0;
   background-color: #fafafa;
   color: #333;
+  font-size: 16px; /* tamanho base maior */
+  line-height: 1.5;
   text-align: center;
 }
 
@@ -23,7 +25,7 @@ header h1 {
 }
 header p {
   margin: 5px 0 0;
-  font-size: 1.1em;
+  font-size: 1.2em;
 }
 
 /* =========================
@@ -42,19 +44,21 @@ form label {
   margin-bottom: 10px;
 }
 form input, form select {
-  padding: 10px;
+  padding: 12px;
   border: 1px solid #ccc;
   border-radius: 6px;
   flex: 1 1 200px;
+  font-size: 16px;
 }
 form button {
   background-color: #800020;
   color: #fff;
   border: none;
-  padding: 12px 20px;
+  padding: 14px 24px;
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s;
+  font-size: 16px;
 }
 form button:hover {
   background-color: #a52a2a;
@@ -67,23 +71,14 @@ form button:hover {
   background-color: #800020;
   color: #fff;
   border: none;
-  padding: 12px 20px;
+  padding: 14px 24px;
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s;
+  font-size: 16px;
 }
 #exportar-json:hover {
   background-color: #a52a2a;
-}
-
-/* Prévia JSON */
-#json-preview {
-  margin: 20px;
-  padding: 15px;
-  background: #f4f4f4;
-  border-radius: 8px;
-  font-family: monospace;
-  white-space: pre-wrap;
 }
 
 /* =========================
@@ -95,7 +90,7 @@ form button:hover {
   justify-content: center;
   margin: 20px auto;
   padding: 15px;
-  background-color: #fff3e0; /* fundo suave */
+  background-color: #fff3e0;
   border-radius: 10px;
   max-width: 600px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
@@ -103,17 +98,17 @@ form button:hover {
 #perfil img, #preview-perfil img {
   width: 80px;
   height: 80px;
-  border-radius: 50%; /* foto redonda */
+  border-radius: 50%;
   margin-right: 15px;
   border: 2px solid #a52a2a;
 }
 #perfil p, #preview-perfil p {
-  font-size: 1.1em;
+  font-size: 1.2em;
   color: #a52a2a;
 }
 
 /* =========================
-   PRODUTOS (Clientes/Admin)
+   PRODUTOS
 ========================= */
 #produtos, #lista-produtos {
   display: flex;
@@ -144,27 +139,30 @@ form button:hover {
 .produto h3 {
   margin: 10px 0 5px;
   color: #800020;
+  font-size: 1.2em;
 }
 .produto p {
   font-weight: bold;
   margin: 5px 0;
+  font-size: 1.1em;
 }
 .produto button {
   margin-top: 10px;
   background-color: #800020;
   color: #fff;
   border: none;
-  padding: 8px 12px;
+  padding: 10px 16px;
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s;
+  font-size: 15px;
 }
 .produto button:hover {
   background-color: #a52a2a;
 }
 
 /* =========================
-   ADICIONAIS (Clientes/Admin)
+   ADICIONAIS
 ========================= */
 #lista-adicionais {
   margin: 20px;
@@ -176,6 +174,7 @@ form button:hover {
   border-bottom: 1px solid #eee;
   color: #800020;
   font-weight: 500;
+  font-size: 1.1em;
 }
 #lista-adicionais p:last-child {
   border-bottom: none;
@@ -195,7 +194,7 @@ form button:hover {
 }
 
 /* =========================
-   MODAL (Clientes)
+   MODAL
 ========================= */
 .modal {
   position: fixed;
@@ -211,6 +210,7 @@ form button:hover {
   border-radius: 10px;
   max-width: 500px;
   text-align: left;
+  font-size: 16px;
 }
 #fechar-modal {
   float: right;
@@ -219,7 +219,7 @@ form button:hover {
 }
 
 /* =========================
-   FORMULÁRIO DE PEDIDO (Clientes)
+   FORMULÁRIO DE PEDIDO
 ========================= */
 #form-pedido {
   margin: 20px auto;
@@ -228,6 +228,7 @@ form button:hover {
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  font-size: 16px;
 }
 #form-pedido.hidden { display: none; }
 #form-pedido h2 {
@@ -235,20 +236,62 @@ form button:hover {
 }
 #form-pedido input, #form-pedido select {
   width: 100%;
-  padding: 8px;
+  padding: 10px;
   border: 1px solid #ccc;
   border-radius: 6px;
+  font-size: 16px;
 }
 #form-pedido button {
   margin-top: 15px;
-  padding: 10px 20px;
+  padding: 12px 20px;
   background: #800020;
   color: #fff;
   border: none;
   border-radius: 6px;
   cursor: pointer;
   transition: background 0.3s;
+  font-size: 16px;
 }
 #form-pedido button:hover {
   background: #a52a2a;
+}
+
+/* =========================
+   RESPONSIVIDADE MOBILE
+========================= */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.6em;
+  }
+  header p {
+    font-size: 1.1em;
+  }
+
+  form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  form input, form select, form button {
+    flex: 1 1 100%;
+    font-size: 16px;
+  }
+
+  #produtos, #lista-produtos {
+    flex-direction: column;
+    align-items: center;
+  }
+  .produto {
+    width: 90%;
+    margin-bottom: 20px;
+  }
+
+  .modal-content {
+    width: 95%;
+    font-size: 16px;
+  }
+
+  #form-pedido {
+    width: 95%;
+    font-size: 16px;
+  }
 }
