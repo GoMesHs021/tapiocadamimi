@@ -42,13 +42,13 @@ function renderizarProdutosAdmin() {
     const card = document.createElement('div');
     card.className = 'produto';
     card.innerHTML = `
+      <button class="excluir" data-index="${index}">&times;</button>
       <img src="${produto.imagem}" alt="${produto.nome}" width="150">
       <h3>${produto.nome}</h3>
       <p>R$ ${produto.preco}</p>
       <a href="https://wa.me/5521995714872?text=${encodeURIComponent(produto.mensagem)}" target="_blank">
         Comprar pelo WhatsApp
       </a>
-      <button class="excluir" data-index="${index}">Excluir</button>
     `;
     container.appendChild(card);
   });
