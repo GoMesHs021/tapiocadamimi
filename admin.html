@@ -1,60 +1,65 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <title>Painel Admin - Tapioca da Mimi</title>
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Painel Admin - Tapioca da Mimi</title>
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <h1>Painel Admin - Tapioca da Mimi</h1>
-        <p>Gerencie perfil, produtos e adicionais</p>
-    </header>
+  <!-- Cabeçalho -->
+  <header>
+    <h1>Painel Administrativo</h1>
+    <p>Gerencie os produtos e adicionais</p>
+  </header>
 
-    <!-- Formulário de Perfil -->
-    <h2>Editar Perfil</h2>
-    <form id="form-perfil">
-        <label>Foto (URL): <input type="text" id="perfil-foto"></label><br>
-        <label>Mensagem: <input type="text" id="perfil-mensagem"></label><br>
-        <label>Localização: <input type="text" id="perfil-localizacao"></label><br>
-        <label>Horário: <input type="text" id="perfil-horario"></label><br>
-        <label>Área de entrega: <input type="text" id="perfil-area"></label><br>
-        <button type="submit">Salvar Perfil</button>
-    </form>
-
-    <!-- Prévia do Perfil -->
-    <h2>Perfil Atual</h2>
-    <div id="preview-perfil"></div>
-
-    <!-- Produtos -->
-    <h2>Produtos Cadastrados</h2>
-    <div id="lista-produtos"></div>
-
-    <!-- Adicionais -->
-    <h2>Adicionais Cadastrados</h2>
-    <div id="lista-adicionais"></div>
-
-    <!-- Exportar JSON -->
-    <button id="exportar-json">Exportar JSON</button>
-
-    <!-- Formulário de Produtos -->
-    <h2>Adicionar Produto</h2>
+  <!-- Cadastro de Produtos -->
+  <section>
+    <h2>Cadastrar Produto</h2>
     <form id="form-produto">
-        <label>Nome: <input type="text" id="produto-nome"></label><br>
-        <label>Preço: <input type="text" id="produto-preco"></label><br>
-        <label>Imagem (URL): <input type="text" id="produto-imagem"></label><br>
-        <label>Mensagem: <input type="text" id="produto-mensagem"></label><br>
-        <button type="submit">Adicionar Produto</button>
+      <label>Nome: <input type="text" id="nome" required></label>
+      <label>Preço: <input type="text" id="preco" required></label>
+      <label>Imagem (URL): <input type="text" id="imagem" required></label>
+      <label>Mensagem WhatsApp: <input type="text" id="mensagem" required></label>
+      <button type="submit">Adicionar Produto</button>
     </form>
+  </section>
 
-    <!-- Formulário de Adicionais -->
-    <h2>Adicionar Adicional</h2>
+  <!-- Lista de Produtos -->
+  <section>
+    <h2>Produtos Cadastrados</h2>
+    <div id="produtos"></div>
+  </section>
+
+  <!-- Cadastro de Adicionais -->
+  <section>
+    <h2>Cadastrar Adicional</h2>
     <form id="form-adicional">
-        <label>Nome: <input type="text" id="adicional-nome"></label><br>
-        <label>Preço: <input type="text" id="adicional-preco"></label><br>
-        <button type="submit">Adicionar Adicional</button>
+      <label>Nome: <input type="text" id="nome-adicional" required></label>
+      <label>Preço: <input type="text" id="preco-adicional" required></label>
+      <button type="submit">Adicionar Adicional</button>
     </form>
+  </section>
 
-    <script src="script-admin.js"></script>
+  <!-- Lista de Adicionais -->
+  <section>
+    <h2>Adicionais Cadastrados</h2>
+    <div id="adicionais"></div>
+  </section>
+
+  <!-- Exportar JSON -->
+  <section>
+    <button id="exportar-json">Exportar JSON</button>
+    <pre id="json-preview"></pre>
+  </section>
+
+  <!-- Modal de Pedido (para testes de visualização) -->
+  <div class="modal">
+    <div class="modal-content">
+      <!-- O script.js injeta conteúdo aqui -->
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="script.js"></script>
 </body>
 </html>
