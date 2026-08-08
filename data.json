@@ -1,0 +1,17 @@
+{
+  "produtos": [
+    {
+      "nome": "Tapioca Tradicional",
+      "preco": 8.00,
+      "imagem": "uploads/tapioca1.jpg",
+      "categoria": "Clássicos"
+    },
+    {
+      "nome": "Tapioca com Queijo",
+      "preco": 10.00,
+      "imagem": "uploads/tapioca2.jpg",
+      "categoria": "Clássicos"
+    }
+  ],
+  "whatsapp": "5521999999999"
+}

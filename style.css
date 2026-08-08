@@ -1,0 +1,19 @@
+body {
+  font-family: Arial, sans-serif;
+  text-align: center;
+  background: #fff8f0;
+}
+
+.produto {
+  border: 1px solid #ccc;
+  margin: 10px;
+  padding: 15px;
+  display: inline-block;
+  width: 200px;
+  background: #fff;
+  border-radius: 8px;
+}
+
+.produto img {
+  border-radius: 8px;
+}
