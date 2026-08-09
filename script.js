@@ -227,46 +227,21 @@ function renderizarPedidos() {
   const lista = document.getElementById("lista-pedidos");
   if (!lista) return;
   lista.innerHTML = "";
- if (pedidos.length === 0) {
-  lista.innerHTML = "<p>Nenhum pedido realizado ainda.</p>";
-} else {
-  pedidos.forEach(p => {
-    lista.innerHTML += `
-      <div class="pedido">
-        <strong>Pedido #${p.id}</strong><br>
-        Data: ${p.data}<br>
-        Total: R$ ${p.total.toFixed(2)}<br>
-        Status: ${p.status}
-      </div>
-    `;
-  });
-   // Mostrar campos de entrega ou retirada
-document.getElementById("tipo-pedido").addEventListener("change", function() {
-  if (this.value === "entrega") {
-    document.getElementById("dados-entrega").style.display = "block";
+  if (pedidos.length === 0) {
+    lista.innerHTML = "<p>Nenhum pedido realizado ainda.</p>";
   } else {
-    document.getElementById("dados-entrega").style.display = "none";
+    pedidos.forEach(p => {
+      lista.innerHTML += `
+        <div class="pedido">
+          <strong>Pedido #${p.id}</strong><br>
+          Data: ${p.data}<br>
+          Total: R$ ${p.total.toFixed(2)}<br>
+          Status: ${p.status}
+        </div>
+      `;
+    });
   }
-});
-
-// Mostrar opções de troco se pagamento for dinheiro
-document.getElementById("pagamento").addEventListener("change", function() {
-  if (this.value === "dinheiro") {
-    document.getElementById("troco-opcao").style.display = "block";
-  } else {
-    document.getElementById("troco-opcao").style.display = "none";
-    document.getElementById("valor-troco").style.display = "none";
-  }
-});
-
-// Mostrar campo de valor do troco se cliente marcar "Sim"
-document.getElementById("precisa-troco").addEventListener("change", function() {
-  if (this.value === "sim") {
-    document.getElementById("valor-troco").style.display = "block";
-  } else {
-    document.getElementById("valor-troco").style.display = "none";
-  }
-});
+}
 // Mostrar campos de entrega ou retirada
 document.getElementById("tipo-pedido").addEventListener("change", function() {
   if (this.value === "entrega") {
@@ -293,24 +268,24 @@ document.getElementById("precisa-troco").addEventListener("change", function() {
   } else {
     document.getElementById("valor-troco").style.display = "none";
   }
-  // =========================
+});
+
+// =========================
 // Navegação pelo menu inferior
 // =========================
 function mostrarTela(tela) {
-  // Esconde todas as seções
   document.getElementById("inicio").style.display = "none";
   document.getElementById("produtos").style.display = "none";
   document.getElementById("meus-pedidos").style.display = "none";
   document.getElementById("info").style.display = "none";
 
-  // Mostra apenas a seção escolhida
   document.getElementById(tela).style.display = "block";
 
-  // Se for pedidos, renderiza a lista
   if (tela === "meus-pedidos") {
     renderizarPedidos();
   }
 }
+
   // Mostrar campos de entrega ou retirada
 document.getElementById("tipo-pedido").addEventListener("change", function() {
   if (this.value === "entrega") {
@@ -319,23 +294,3 @@ document.getElementById("tipo-pedido").addEventListener("change", function() {
     document.getElementById("dados-entrega").style.display = "none";
   }
 });
-
-// Mostrar opções de troco se pagamento for dinheiro
-document.getElementById("pagamento").addEventListener("change", function() {
-  if (this.value === "dinheiro") {
-    document.getElementById("troco-opcao").style.display = "block";
-  } else {
-    document.getElementById("troco-opcao").style.display = "none";
-    document.getElementById("valor-troco").style.display = "none";
-  }
-});
-
-// Mostrar campo de valor do troco se cliente marcar "Sim"
-document.getElementById("precisa-troco").addEventListener("change", function() {
-  if (this.value === "sim") {
-    document.getElementById("valor-troco").style.display = "block";
-  } else {
-    document.getElementById("valor-troco").style.display = "none";
-  }
-});
-
