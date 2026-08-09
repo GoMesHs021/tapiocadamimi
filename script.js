@@ -1,4 +1,6 @@
-// --- Cadastro de Produtos (Admin) ---
+// =========================
+// Cadastro de Produtos (Admin)
+// =========================
 const formProduto = document.getElementById('form-produto');
 if (formProduto) {
     formProduto.addEventListener('submit', function(e) {
@@ -15,7 +17,9 @@ if (formProduto) {
     });
 }
 
-// --- Cadastro de Adicionais (Admin) ---
+// =========================
+// Cadastro de Adicionais (Admin)
+// =========================
 const formAdicional = document.getElementById('form-adicional');
 if (formAdicional) {
     formAdicional.addEventListener('submit', function(e) {
@@ -30,7 +34,9 @@ if (formAdicional) {
     });
 }
 
-// --- Renderizar Produtos no Admin ---
+// =========================
+// Renderizar Produtos no Admin
+// =========================
 function renderizarProdutosAdmin() {
     let produtos = JSON.parse(localStorage.getItem('produtos')) || [];
     const container = document.getElementById('produtos');
@@ -45,9 +51,6 @@ function renderizarProdutosAdmin() {
             <img src="${produto.imagem}" alt="${produto.nome}" width="150">
             <h3>${produto.nome}</h3>
             <p>R$ ${produto.preco}</p>
-            <a href="https://wa.me/5521995714872?text=${encodeURIComponent(produto.mensagem)}" target="_blank">
-                Comprar pelo WhatsApp
-            </a>
         `;
         container.appendChild(card);
     });
@@ -64,7 +67,9 @@ function renderizarProdutosAdmin() {
     });
 }
 
-// --- Renderizar Adicionais no Admin ---
+// =========================
+// Renderizar Adicionais no Admin
+// =========================
 function renderizarAdicionaisAdmin() {
     let adicionais = JSON.parse(localStorage.getItem('adicionais')) || [];
     const container = document.getElementById('adicionais');
@@ -93,7 +98,9 @@ function renderizarAdicionaisAdmin() {
     });
 }
 
-// --- Exportar JSON (Admin) ---
+// =========================
+// Exportar JSON (Admin)
+// =========================
 const exportarBtn = document.getElementById('exportar-json');
 if (exportarBtn) {
     exportarBtn.addEventListener('click', function() {
@@ -110,7 +117,17 @@ if (exportarBtn) {
     });
 }
 
-// --- Renderizar Produtos para Clientes ---
+// =========================
+// Carrinho de Compras (Clientes)
+// =========================
+let carrinho = [];
+const carrinhoBtn = document.getElementById("carrinho");
+const modal = document.querySelector(".modal");
+const fecharModal = document.getElementById("fechar-modal");
+const detalhesProduto = document.getElementById("detalhes-produto");
+const formPedido = document.getElementById("form-pedido");
+
+// Renderizar Produtos para Clientes
 function renderizarProdutos() {
     fetch('data.json')
     .then(res => res.json())
@@ -118,100 +135,94 @@ function renderizarProdutos() {
         const container = document.getElementById('produtos');
         if (!container) return;
         container.innerHTML = '';
-        data.produtos.forEach(produto => {
+        data.produtos.forEach((produto, index) => {
             const card = document.createElement('div');
             card.className = 'produto';
             card.innerHTML = `
                 <img src="${produto.imagem}" alt="${produto.nome}">
                 <h3>${produto.nome}</h3>
                 <p>R$ ${produto.preco}</p>
+                <button onclick="adicionarCarrinho(${index})">Adicionar</button>
             `;
             container.appendChild(card);
-
-            card.addEventListener('click', () => {
-                abrirFormularioPedido(produto, data.adicionais);
-            });
         });
+        // Guardar produtos em memória
+        localStorage.setItem('produtosCache', JSON.stringify(data.produtos));
+        localStorage.setItem('adicionaisCache', JSON.stringify(data.adicionais));
     });
 }
 
-// --- Formulário de Pedido (Clientes) ---
-function abrirFormularioPedido(produto, adicionais) {
-    const modal = document.querySelector('.modal');
-    const formArea = document.querySelector('.modal-content');
+// Adicionar ao carrinho
+function adicionarCarrinho(index) {
+    let produtos = JSON.parse(localStorage.getItem('produtosCache')) || [];
+    const produto = produtos[index];
+    carrinho.push(produto);
+    atualizarCarrinho();
+}
 
-    formArea.innerHTML = `
-        <span id="fechar-modal">&times;</span>
-        <h2>${produto.nome}</h2>
-        <img src="${produto.imagem}" alt="${produto.nome}" style="max-width:100%;max-height:250px;object-fit:cover;border-radius:10px;margin-bottom:10px;">
-        <p>Preço base: R$ ${produto.preco}</p>
-        
-        <h3>Adicionais</h3>
-        ${adicionais.map(add => `
-            <label>
-                <input type="checkbox" value="${add.nome} - R$ ${add.preco}" class="check-adicional">
-                ${add.nome} - R$ ${add.preco}
-            </label><br>
-        `).join('')}
-        
-        <h3>Forma de pagamento</h3>
-        <select id="pagamento">
-            <option value="Pix">Pix</option>
-            <option value="Dinheiro">Dinheiro</option>
-            <option value="Cartão">Cartão</option>
-        </select>
-        
-        <h3>Precisa de troco?</h3>
-        <select id="troco">
-            <option value="Não">Não</option>
-            <option value="Sim">Sim</option>
-        </select>
-        
-        <h3>Endereço de entrega</h3>
-        <input type="text" id="endereco" placeholder="Rua e número" required>
-        
-        <h3>Seu WhatsApp</h3>
-        <input type="text" id="whatsapp" placeholder="(DDD) 99999-9999" required>
-        
-        <button id="finalizar-pedido">Finalizar Pedido</button>
-    `;
+// Atualizar botão carrinho
+function atualizarCarrinho() {
+    carrinhoBtn.textContent = `Carrinho (${carrinho.length})`;
+}
 
-    // Mostrar modal com efeito
-    modal.classList.add('show');
+// Abrir modal com carrinho
+carrinhoBtn.addEventListener("click", () => {
+    detalhesProduto.innerHTML = "";
+    if (carrinho.length === 0) {
+        detalhesProduto.innerHTML = "<p>Seu carrinho está vazio.</p>";
+    } else {
+        carrinho.forEach(item => {
+            detalhesProduto.innerHTML += `
+                <div><strong>${item.nome}</strong> - R$ ${item.preco}</div>
+            `;
+        });
+    }
+    modal.classList.add("show");
+});
 
-    // Botão de fechar
-    document.getElementById('fechar-modal').addEventListener('click', () => {
-        modal.classList.remove('show');
+// Fechar modal
+if (fecharModal) {
+    fecharModal.addEventListener("click", () => {
+        modal.classList.remove("show");
     });
+}
 
-    // Fechar clicando fora
-    window.addEventListener('click', (e) => {
-        if (e.target === modal) {
-            modal.classList.remove('show');
+// Finalizar pedido
+if (formPedido) {
+    formPedido.addEventListener("submit", (e) => {
+        e.preventDefault();
+        if (carrinho.length === 0) {
+            alert("Adicione produtos ao carrinho antes de finalizar.");
+            return;
         }
-    });
 
-    // Finalizar pedido
-    document.getElementById('finalizar-pedido').addEventListener('click', () => {
-        const selecionados = [...document.querySelectorAll('.check-adicional:checked')].map(c => c.value);
-        const pagamento = document.getElementById('pagamento').value;
-        const troco = document.getElementById('troco').value;
-        const endereco = document.getElementById('endereco').value;
-        const whatsapp = document.getElementById('whatsapp').value;
+        const pagamento = document.getElementById("pagamento").value;
+        const troco = document.getElementById("troco").value;
+        const endereco = document.getElementById("endereco").value;
+        const whatsapp = document.getElementById("whatsapp").value;
 
-        const mensagem = `
-Pedido: ${produto.nome}
-Adicionais: ${selecionados.join(', ') || 'Nenhum'}
-Pagamento: ${pagamento} (Troco: ${troco})
-Endereço: ${endereco}
-WhatsApp do cliente: ${whatsapp}
-        `;
+        let resumo = "📦 Pedido - Tapioca da Mimi\n\n";
+        carrinho.forEach(item => {
+            resumo += `- ${item.nome} (R$ ${item.preco})\n`;
+        });
+        resumo += `\n💳 Pagamento: ${pagamento}`;
+        resumo += `\nTroco: ${troco}`;
+        resumo += `\n📍 Endereço: ${endereco}`;
+        resumo += `\n📱 WhatsApp: ${whatsapp}`;
 
-        window.open(`https://wa.me/5521995714872?text=${encodeURIComponent(mensagem)}`, '_blank');
+        // Abrir WhatsApp com mensagem
+        window.open(`https://wa.me/5521995714872?text=${encodeURIComponent(resumo)}`, '_blank');
+
+        // Limpar carrinho
+        carrinho = [];
+        atualizarCarrinho();
+        modal.classList.remove("show");
     });
 }
 
-// --- Inicialização ---
+// =========================
+// Inicialização
+// =========================
 renderizarProdutosAdmin();
 renderizarAdicionaisAdmin();
 renderizarProdutos();
