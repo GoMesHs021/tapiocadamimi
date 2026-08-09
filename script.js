@@ -2,10 +2,10 @@
 // Dados dos produtos
 // =========================
 const produtos = [
-  { nome: "Tapioca Tradicional", preco: 8, imagem: "tapioca1.jpg", categoria: "salgada" },
-  { nome: "Tapioca com Queijo", preco: 10, imagem: "tapioca2.jpg", categoria: "salgada" },
+  { nome: "Tapioca Tradicional", preco: 4, imagem: "tapioca1.jpg", categoria: "salgada" },
+  { nome: "Tapioca com Mussarela", preco: 11, imagem: "tapioca2.jpg", categoria: "salgada" },
   { nome: "Tapioca Doce", preco: 12, imagem: "tapioca3.jpg", categoria: "doce" },
-  { nome: "Suco Natural", preco: 6, imagem: "suco.jpg", categoria: "bebida" }
+  { nome: "Guaravita", preco: 2, imagem: "suco.jpg", categoria: "bebida" }
 ];
 
 // Lista de adicionais
