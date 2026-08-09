@@ -1,4 +1,6 @@
-/* Geral */
+/* =========================
+   ESTILO GERAL
+========================= */
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
   margin: 0;
@@ -14,6 +16,8 @@ header {
   text-align: center;
   padding: 15px;
 }
+header h1 { margin: 0; font-size: 2em; }
+header p { margin: 5px 0 0; font-size: 1.1em; }
 
 /* Banner */
 #banner {
@@ -29,9 +33,7 @@ header {
 }
 
 /* Categorias */
-#categorias {
-  padding: 15px;
-}
+#categorias { padding: 15px; }
 .categoria {
   background: #fff3e0;
   border: 2px solid #800020;
@@ -67,6 +69,7 @@ header {
   border-radius: 8px; font-size: 1.1em;
   width: 100%; cursor: pointer;
 }
+.produto button:hover { background-color: #a52a2a; }
 
 /* Carrinho flutuante */
 #carrinho {
@@ -110,6 +113,45 @@ header {
   color: #fff; border: none; border-radius: 12px;
   font-size: 1.2em; cursor: pointer;
 }
+#form-pedido button:hover { background: #a52a2a; }
+
+/* Quantidade no carrinho */
+.quantidade {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 5px 0;
+}
+.quantidade button {
+  background: #800020;
+  color: #fff;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+}
+.quantidade span {
+  font-weight: bold;
+  font-size: 1.1em;
+}
+
+/* Meus pedidos */
+#meus-pedidos {
+  padding: 15px;
+}
+#meus-pedidos h2 {
+  color: #800020;
+  margin-bottom: 10px;
+}
+.pedido {
+  background: #fff3e0;
+  border: 2px solid #800020;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+.pedido strong { color: #800020; }
 
 /* Menu inferior fixo */
 #menu-inferior {
