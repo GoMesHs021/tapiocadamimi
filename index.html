@@ -21,7 +21,6 @@
       <h2>Categorias</h2>
       <div class="categoria">Tapiocas Salgadas</div>
       <div class="categoria">Tapiocas Doces</div>
-      <div class="categoria">Combos</div>
       <div class="categoria">Bebidas</div>
     </div>
     <section id="produtos"></section>
@@ -37,21 +36,29 @@
       <div id="detalhes-produto"></div>
       <form id="form-pedido">
         <h2>Finalizar Pedido</h2>
+
+        <h3>Adicionais</h3>
+        <div id="lista-adicionais"></div>
+
         <label for="pagamento">Forma de pagamento</label>
         <select id="pagamento">
           <option value="Pix">Pix</option>
           <option value="Dinheiro">Dinheiro</option>
           <option value="Cartão">Cartão</option>
         </select>
+
         <label for="troco">Precisa de troco?</label>
         <select id="troco">
           <option value="Não">Não</option>
           <option value="Sim">Sim</option>
         </select>
+
         <label for="endereco">Endereço</label>
         <input type="text" id="endereco" required>
+
         <label for="whatsapp">WhatsApp</label>
         <input type="text" id="whatsapp" required>
+
         <button id="finalizar-pedido">Enviar pedido pelo WhatsApp</button>
       </form>
     </div>
