@@ -79,16 +79,34 @@ header p { margin:5px 0 0; font-size:1.3em; }
 }
 #form-pedido button:hover { background:#a52a2a; }
 
-/* Adicionais */
+/* Adicionais (globais) */
 #lista-adicionais { margin:10px 0; }
 #lista-adicionais label {
   display:block; margin-bottom:8px; font-size:1.1em; color:#333;
 }
 #lista-adicionais input[type="checkbox"] { margin-right:10px; }
 
+/* Adicionais dentro do carrinho */
+.adicionais-lista {
+  margin-top:10px;
+  padding:12px;
+  background:#fff3e0;
+  border:1px solid #800020;
+  border-radius:10px;
+}
+.adicionais-lista label {
+  display:block;
+  margin-bottom:10px;
+  font-size:1.2em; /* maior para celular */
+}
+.adicionais-lista input[type="checkbox"] {
+  margin-right:12px;
+  transform: scale(1.4); /* aumenta área de toque no celular */
+}
+
 /* Quantidade */
-.quantidade { display:flex; align-items:center; justify-content:center; gap:10px; margin:8px 0; }
-.quantidade button { background:#800020; color:#fff; border:none; padding:8px 14px; border-radius:8px; cursor:pointer; font-size:1.2em; }
+.quantidade { display:flex; align-items:center; justify-content:center; gap:10px; margin:8px 0; flex-wrap:wrap; }
+.quantidade button { background:#800020; color:#fff; border:none; padding:10px 16px; border-radius:8px; cursor:pointer; font-size:1.2em; }
 .quantidade span { font-weight:bold; font-size:1.2em; }
 
 /* Meus pedidos */
@@ -114,5 +132,5 @@ header p { margin:5px 0 0; font-size:1.3em; }
   display:flex; flex-direction:column; align-items:center;
 }
 #menu-inferior button span {
-  font-size:0.9em; margin-top:4px;
+  font-size:1em; margin-top:4px;
 }
