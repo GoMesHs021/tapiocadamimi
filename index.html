@@ -11,20 +11,25 @@
     <p>Delícias de Tapioca</p>
   </header>
 
-  <!-- Início -->
-  <section id="inicio">
-    <div id="banner">
-      <h2>Peça sua tapioca agora!</h2>
-      <button id="btn-pedir">Pedir agora</button>
+  <!-- Categorias -->
+  <section id="categorias">
+    <h2>Categorias</h2>
+    <div class="categoria" onclick="mostrarCategoria('salgada')">
+      <img src="salgadas.jpg" alt="Tapiocas Salgadas">
+      <span>Tapiocas Salgadas</span>
     </div>
-    <div id="categorias">
-      <h2>Categorias</h2>
-      <div class="categoria">Tapiocas Salgadas</div>
-      <div class="categoria">Tapiocas Doces</div>
-      <div class="categoria">Bebidas</div>
+    <div class="categoria" onclick="mostrarCategoria('doce')">
+      <img src="doces.jpg" alt="Tapiocas Doces">
+      <span>Tapiocas Doces</span>
     </div>
-    <section id="produtos"></section>
+    <div class="categoria" onclick="mostrarCategoria('bebida')">
+      <img src="bebidas.jpg" alt="Bebidas">
+      <span>Bebidas</span>
+    </div>
   </section>
+
+  <!-- Produtos (inicialmente escondidos) -->
+  <section id="produtos" style="display:none;"></section>
 
   <!-- Carrinho flutuante -->
   <div id="carrinho">Carrinho (0)</div>
