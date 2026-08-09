@@ -556,6 +556,15 @@ header p { margin: 5px 0 0; font-size: 1.3em; }
 #menu-inferior button {
   background: none;
   border: none;
-  color: #800020;
+  color: #800020;   /* cor dos ícones/texto */
   font-size: 1.4em;
   cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#menu-inferior button span {
+  font-size: 1em;
+  margin-top: 4px;
+}
