@@ -3,7 +3,6 @@
 <head>
   <meta charset="UTF-8">
   <title>Tapioca da Mimi</title>
-  <!-- Meta viewport para mobile -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css">
 </head>
@@ -13,24 +12,24 @@
     <p>Delícias de Tapioca</p>
   </header>
 
- <!-- Aba Início -->
-<section id="inicio">
-  <h2>Categorias</h2>
-  <div class="categoria" onclick="mostrarCategoria('salgada')">
-    <img src="salgadas.jpg" alt="Tapiocas Salgadas">
-    <span>Tapiocas Salgadas</span>
-  </div>
-  <div class="categoria" onclick="mostrarCategoria('doce')">
-    <img src="doces.jpg" alt="Tapiocas Doces">
-    <span>Tapiocas Doces</span>
-  </div>
-  <div class="categoria" onclick="mostrarCategoria('bebida')">
-    <img src="bebidas.jpg" alt="Bebidas">
-    <span>Bebidas</span>
-  </div>
-</section>
+  <!-- Aba Início -->
+  <section id="inicio">
+    <h2>Categorias</h2>
+    <div class="categoria" onclick="mostrarCategoria('salgada')">
+      <img src="salgadas.jpg" alt="Tapiocas Salgadas">
+      <span>Tapiocas Salgadas</span>
+    </div>
+    <div class="categoria" onclick="mostrarCategoria('doce')">
+      <img src="doces.jpg" alt="Tapiocas Doces">
+      <span>Tapiocas Doces</span>
+    </div>
+    <div class="categoria" onclick="mostrarCategoria('bebida')">
+      <img src="bebidas.jpg" alt="Bebidas">
+      <span>Bebidas</span>
+    </div>
+  </section>
 
-  <!-- Produtos (inicialmente escondidos) -->
+  <!-- Produtos -->
   <section id="produtos" style="display:none;"></section>
 
   <!-- Carrinho flutuante -->
@@ -43,7 +42,6 @@
       <div id="detalhes-produto"></div>
       <form id="form-pedido">
         <h2>Finalizar Pedido</h2>
-
         <h3>Adicionais</h3>
         <div id="lista-adicionais"></div>
 
@@ -82,40 +80,17 @@
     <h2>Tapioca da Mimi</h2>
     <p>Localizada no Rio das Pedras - RJ</p>
     <p>Ponto de referência: Rua Erva Doce</p>
-    <p>
-      Telefone: 
-      <a href="https://wa.me/5521995714872" target="_blank">
-        +55 21 99571-4872
-      </a>
-    </p>
-    <p>
-      Email: 
-      <a href="mailto:wellingtongomesdes@gmail.com">
-        wellingtongomesdes@gmail.com
-      </a>
-    </p>
-    <p>
-      Instagram: 
-      <a href="https://www.instagram.com/tapioca_da_mimi/" target="_blank">
-        @tapioca_da_mimi
-      </a>
-    </p>
+    <p>Telefone: <a href="https://wa.me/5521995714872" target="_blank">+55 21 99571-4872</a></p>
+    <p>Email: <a href="mailto:wellingtongomesdes@gmail.com">wellingtongomesdes@gmail.com</a></p>
+    <p>Instagram: <a href="https://www.instagram.com/tapioca_da_mimi/" target="_blank">@tapioca_da_mimi</a></p>
   </section>
 
-  <!-- Menu inferior estilo app -->
+  <!-- Menu inferior -->
   <nav id="menu-inferior">
-    <button onclick="mostrarTela('inicio')">
-      🏠<br><span>Início</span>
-    </button>
-    <button onclick="mostrarTela('carrinho')">
-      🛒<br><span>Carrinho</span>
-    </button>
-    <button onclick="mostrarTela('meus-pedidos')">
-      📦<br><span>Pedidos</span>
-    </button>
-    <button onclick="mostrarTela('info')">
-      ℹ️<br><span>Info</span>
-    </button>
+    <button onclick="mostrarTela('inicio')">🏠<br><span>Início</span></button>
+    <button onclick="mostrarTela('carrinho')">🛒<br><span>Carrinho</span></button>
+    <button onclick="mostrarTela('meus-pedidos')">📦<br><span>Pedidos</span></button>
+    <button onclick="mostrarTela('info')">ℹ️<br><span>Info</span></button>
   </nav>
 
   <script src="script.js"></script>
