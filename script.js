@@ -161,12 +161,10 @@ document.getElementById("form-pedido").addEventListener("submit", (e) => {
     return;
   }
 
-  const pagamento = document.getElementById("pagamento").value;
-  const troco = document.getElementById("troco").value;
-  const endereco = document.getElementById("endereco").value;
-  const whatsapp = document.getElementById("whatsapp").value;
-
+  const tipoPedido = document.getElementById("tipo-pedido").value;
   let resumo = "📦 Pedido - Tapioca da Mimi\n\n";
+
+  // Itens do carrinho
   let subtotal = 0;
   carrinho.forEach(item => {
     resumo += `- ${item.nome} x${item.quantidade} (R$ ${item.preco.toFixed(2)})\n`;
@@ -177,10 +175,29 @@ document.getElementById("form-pedido").addEventListener("submit", (e) => {
     }
   });
 
-  resumo += `\nSubtotal: R$ ${subtotal.toFixed(2)}`;
-  resumo += `\nPagamento: ${pagamento} (Troco: ${troco})`;
-  resumo += `\nEndereço: ${endereco}`;
-  resumo += `\nWhatsApp: ${whatsapp}`;
+  resumo += `\nSubtotal: R$ ${subtotal.toFixed(2)}\n`;
+
+  if (tipoPedido === "entrega") {
+    const nome = document.getElementById("nome").value;
+    const telefone = document.getElementById("telefone").value;
+    const endereco = document.getElementById("endereco").value;
+    const numero = document.getElementById("numero").value;
+
+    resumo += `Nome: ${nome}\nTelefone: ${telefone}\nEndereço: ${endereco}, Nº ${numero}\n`;
+  }
+
+  const pagamento = document.getElementById("pagamento").value;
+  resumo += `Pagamento: ${pagamento}\n`;
+
+  if (pagamento === "dinheiro") {
+    const precisaTroco = document.getElementById("precisa-troco").value;
+    if (precisaTroco === "sim") {
+      const troco = document.getElementById("troco").value;
+      resumo += `Troco para: R$ ${troco}\n`;
+    } else {
+      resumo += "Sem necessidade de troco\n";
+    }
+  }
 
   // Salvar pedido no histórico
   const pedido = {
@@ -210,45 +227,18 @@ function renderizarPedidos() {
   const lista = document.getElementById("lista-pedidos");
   if (!lista) return;
   lista.innerHTML = "";
-  if (pedidos.length === 0) {
-    lista.innerHTML = "<p>Nenhum pedido realizado ainda.</p>";
-  } else {
-    pedidos.forEach(p => {
-      lista.innerHTML += `
-        <div class="pedido">
-          <strong>Pedido #${p.id}</strong><br>
-          Data: ${p.data}<br>
-          Total: R$ ${p.total.toFixed(2)}<br>
-          Status: ${p.status}
-        </div>
-      `;
-    });
-  }
+ if (pedidos.length === 0) {
+  lista.innerHTML = "<p>Nenhum pedido realizado ainda.</p>";
+} else {
+  pedidos.forEach(p => {
+    lista.innerHTML += `
+      <div class="pedido">
+        <strong>Pedido #${p.id}</strong><br>
+        Data: ${p.data}<br>
+        Total: R$ ${p.total.toFixed(2)}<br>
+        Status: ${p.status}
+      </div>
+    `;
+  });
 }
-renderizarPedidos();
-
-// =========================
-// Navegação inferior
-// =========================
-function mostrarTela(tela) {
-  document.getElementById("inicio").style.display = "none";
-  document.getElementById("produtos").style.display = "none";
-  document.getElementById("meus-pedidos").style.display = "none";
-  document.getElementById("info").style.display = "none";
-
-  // Fecha modal se estiver aberto
-  document.querySelector(".modal").classList.remove("show");
-
-  if (tela === "inicio") {
-    document.getElementById("inicio").style.display = "block";
-  }
-  if (tela === "carrinho") {
-    document.getElementById("carrinho").click();
-  }
-  if (tela === "meus-pedidos") {
-    document.getElementById("meus-pedidos").style.display = "block";
-  }
-  if (tela === "info") {
-    document.getElementById("info").style.display = "block";
-  }
 }
