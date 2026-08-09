@@ -4,28 +4,35 @@
     "mensagem": "Seja bem-vindo a tapioca da Mimi",
     "localizacao": "Rio das Pedras - RJ",
     "horario": "08:00 ás 14:00",
-    "area": "Somente no Rio  das Pedras"
+    "area": "Somente no Rio das Pedras"
   },
   "produtos": [
     {
       "nome": "Tapioca Pura (sem Recheio)",
       "preco": "4,00",
       "imagem": "https://i.pinimg.com/736x/b1/e8/24/b1e824005398e3bbd544f84e9fa4c72a.jpg",
-      "categoria"; "salgada"
+      "categoria": "salgada",
       "mensagem": "Gostaria de fazer esse pedido!"
     },
     {
       "nome": "Tapioca de Coco com leite condensado 🥥",
       "preco": "10,00",
       "imagem": "https://tse1.mm.bing.net/th/id/OIP.OKAgL59iKqswt9DQiB_yZQHaEw",
-      "categoria"; "doce"
+      "categoria": "doce",
       "mensagem": "Gostaria de fazer esse pedido!"
     },
     {
       "nome": "Tapioca de manteiga",
       "preco": "6,00",
       "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
-      "categoria"; "salgada"
+      "categoria": "salgada",
+      "mensagem": "Gostaria de fazer esse pedido!"
+    },
+    {
+      "nome": "Suco de Maracujá",
+      "preco": "5,00",
+      "imagem": "https://tse1.mm.bing.net/th/id/OIP.3XfQkYwWcZk9EwHaEw",
+      "categoria": "bebida",
       "mensagem": "Gostaria de fazer esse pedido!"
     }
   ],
