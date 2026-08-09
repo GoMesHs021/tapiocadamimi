@@ -172,9 +172,9 @@ document.getElementById("form-pedido").addEventListener("submit", (e) => {
     resumo += `- ${item.nome} x${item.quantidade} (R$ ${item.preco.toFixed(2)})\n`;
     subtotal += item.preco * item.quantidade;
     if (item.adicionais && item.adicionais.length > 0) {
-      resumo += `   Adicionais: ${item.adicionais.map(a => a.nome + " R$ " + a.preco).join(", ")}\n`;
-      item.adicionais.forEach(a => subtotal += a.preco);
-    }
+  resumo += `   Adicionais: ${item.adicionais.map(a => a.nome + " R$ " + a.preco).join(", ")}\n`;
+  item.adicionais.forEach(a => subtotal += a.preco * item.quantidade);
+}
   });
 
   resumo += `\nSubtotal: R$ ${subtotal.toFixed(2)}`;
