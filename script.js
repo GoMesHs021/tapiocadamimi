@@ -213,7 +213,6 @@ function mostrarTela(tela) {
   // Mostra a escolhida
   if (tela === "inicio") {
     document.getElementById("inicio").style.display = "block";
-    document.getElementById("produtos").style.display = "none"; // só aparece ao clicar na categoria
   }
   if (tela === "carrinho") {
     document.getElementById("carrinho").click();
