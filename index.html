@@ -6,19 +6,16 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Cabeçalho -->
   <header>
     <h1>Tapioca da Mimi</h1>
     <p>Delícias de Tapioca</p>
   </header>
 
-  <!-- Banner principal -->
   <section id="banner">
     <h2>Peça sua tapioca agora!</h2>
     <button id="btn-pedir">Pedir agora</button>
   </section>
 
-  <!-- Categorias -->
   <section id="categorias">
     <h2>Categorias</h2>
     <div class="categoria">Tapiocas Salgadas</div>
@@ -27,52 +24,51 @@
     <div class="categoria">Bebidas</div>
   </section>
 
-  <!-- Produtos -->
   <section id="produtos"></section>
 
   <!-- Carrinho flutuante -->
   <div id="carrinho">Carrinho (0)</div>
 
-  <!-- Modal estilo bottom sheet -->
+  <!-- Modal carrinho -->
   <div class="modal">
     <div class="modal-content">
       <span id="fechar-modal">&times;</span>
       <div id="detalhes-produto"></div>
       <form id="form-pedido">
         <h2>Finalizar Pedido</h2>
-        <div id="lista-adicionais"></div>
-
         <label for="pagamento">Forma de pagamento</label>
         <select id="pagamento">
           <option value="Pix">Pix</option>
           <option value="Dinheiro">Dinheiro</option>
           <option value="Cartão">Cartão</option>
         </select>
-
         <label for="troco">Precisa de troco?</label>
         <select id="troco">
           <option value="Não">Não</option>
           <option value="Sim">Sim</option>
         </select>
-
-        <label for="endereco">Endereço de entrega</label>
-        <input type="text" id="endereco" placeholder="Rua e número" required>
-
-        <label for="whatsapp">Seu WhatsApp</label>
-        <input type="text" id="whatsapp" placeholder="(DDD) 99999-9999" required>
-
+        <label for="endereco">Endereço</label>
+        <input type="text" id="endereco" required>
+        <label for="whatsapp">WhatsApp</label>
+        <input type="text" id="whatsapp" required>
         <button id="finalizar-pedido">Enviar pedido pelo WhatsApp</button>
       </form>
     </div>
   </div>
 
-  <!-- Menu inferior fixo -->
+  <!-- Aba Meus Pedidos -->
+  <section id="meus-pedidos">
+    <h2>Meus Pedidos</h2>
+    <div id="lista-pedidos"></div>
+  </section>
+
+  <!-- Menu inferior -->
   <nav id="menu-inferior">
-    <button>🏠 Início</button>
-    <button>📋 Cardápio</button>
-    <button>🛒 Carrinho</button>
-    <button>📦 Meus pedidos</button>
-    <button>ℹ️ Informações</button>
+    <button onclick="mostrarTela('inicio')">🏠 Início</button>
+    <button onclick="mostrarTela('cardapio')">📋 Cardápio</button>
+    <button onclick="mostrarTela('carrinho')">🛒 Carrinho</button>
+    <button onclick="mostrarTela('meus-pedidos')">📦 Meus pedidos</button>
+    <button onclick="mostrarTela('info')">ℹ️ Informações</button>
   </nav>
 
   <script src="script.js"></script>
