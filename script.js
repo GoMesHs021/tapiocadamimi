@@ -20,25 +20,29 @@ let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 let pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
 
 // =========================
-// Renderizar produtos
+// Mostrar produtos por categoria
 // =========================
-function renderizarProdutos() {
+function mostrarCategoria(categoria) {
   const container = document.getElementById("produtos");
-  if (!container) return;
+  container.style.display = "block";
   container.innerHTML = "";
-  produtos.forEach((prod, index) => {
-    const card = document.createElement("div");
-    card.className = "produto";
-    card.innerHTML = `
-      <img src="${prod.imagem}" alt="${prod.nome}">
-      <h3>${prod.nome}</h3>
-      <p>R$ ${prod.preco.toFixed(2)}</p>
-      <button onclick="adicionarCarrinho(${index})">Adicionar</button>
-    `;
-    container.appendChild(card);
-  });
+  const filtrados = produtos.filter(p => p.categoria === categoria);
+  if (filtrados.length === 0) {
+    container.innerHTML = "<p>Nenhum produto nesta categoria.</p>";
+  } else {
+    filtrados.forEach((prod, index) => {
+      const card = document.createElement("div");
+      card.className = "produto";
+      card.innerHTML = `
+        <img src="${prod.imagem}" alt="${prod.nome}">
+        <h3>${prod.nome}</h3>
+        <p>R$ ${prod.preco.toFixed(2)}</p>
+        <button onclick="adicionarCarrinho(${produtos.indexOf(prod)})">Adicionar</button>
+      `;
+      container.appendChild(card);
+    });
+  }
 }
-renderizarProdutos();
 
 // =========================
 // Carrinho
