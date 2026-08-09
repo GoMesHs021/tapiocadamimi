@@ -1,3 +1,6 @@
+/* =========================
+   ESTILO GERAL
+========================= */
 body {
   font-family: 'Segoe UI', Arial, sans-serif;
   margin: 0; padding: 0;
@@ -5,7 +8,12 @@ body {
 }
 
 /* Cabeçalho */
-header { background:#800020; color:#fff; text-align:center; padding:15px; }
+header {
+  background:#800020; color:#fff;
+  text-align:center; padding:15px;
+}
+header h1 { margin:0; font-size:2em; }
+header p { margin:5px 0 0; font-size:1.1em; }
 
 /* Banner */
 #banner { text-align:center; padding:20px; }
@@ -59,6 +67,7 @@ header { background:#800020; color:#fff; text-align:center; padding:15px; }
 #fechar-modal { position:absolute; top:15px; right:20px; font-size:28px; font-weight:bold; color:#800020; cursor:pointer; }
 
 /* Formulário */
+#form-pedido h2 { color:#800020; text-align:center; margin-bottom:15px; }
 #form-pedido label { display:block; margin-top:10px; color:#800020; }
 #form-pedido input, #form-pedido select {
   width:100%; padding:12px; border:2px solid #800020; border-radius:8px; margin-bottom:10px;
@@ -68,6 +77,13 @@ header { background:#800020; color:#fff; text-align:center; padding:15px; }
   border-radius:12px; font-size:1.2em; cursor:pointer;
 }
 #form-pedido button:hover { background:#a52a2a; }
+
+/* Adicionais */
+#lista-adicionais { margin:10px 0; }
+#lista-adicionais label {
+  display:block; margin-bottom:6px; font-size:1em; color:#333;
+}
+#lista-adicionais input[type="checkbox"] { margin-right:8px; }
 
 /* Quantidade */
 .quantidade { display:flex; align-items:center; justify-content:center; gap:8px; margin:5px 0; }
@@ -87,4 +103,10 @@ header { background:#800020; color:#fff; text-align:center; padding:15px; }
 #info a:hover { text-decoration:underline; }
 
 /* Menu inferior */
-#menu-in
+#menu-inferior {
+  position:fixed; bottom:0; left:0; width:100%; background:#800020;
+  display:flex; justify-content:space-around; padding:10px 0;
+}
+#menu-inferior button {
+  background:none; border:none; color:#fff; font-size:1.2em; cursor:pointer;
+}
