@@ -231,10 +231,23 @@ renderizarPedidos();
 // Navegação inferior
 // =========================
 function mostrarTela(tela) {
+  // Esconde todas as seções
   document.getElementById("inicio").style.display = "none";
   document.getElementById("produtos").style.display = "none";
   document.getElementById("meus-pedidos").style.display = "none";
   document.getElementById("info").style.display = "none";
 
+  // Mostra a escolhida
   if (tela === "inicio") {
-    document.getElementById("inicio").style.display =
+    document.getElementById("inicio").style.display = "block";
+  }
+  if (tela === "carrinho") {
+    document.getElementById("carrinho").click();
+  }
+  if (tela === "meus-pedidos") {
+    document.getElementById("meus-pedidos").style.display = "block";
+  }
+  if (tela === "info") {
+    document.getElementById("info").style.display = "block";
+  }
+}
