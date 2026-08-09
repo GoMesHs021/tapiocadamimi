@@ -45,7 +45,10 @@ function mostrarCategoria(categoria) {
   // Mostra apenas a aba escolhida
   document.getElementById(`categoria-${categoria}`).style.display = "block";
 
-  // Renderiza os produtos da categoria
+  // Esconde o menu inferior
+  document.getElementById("menu-inferior").style.display = "none";
+
+  // Renderiza os produtos da categoria...
   const container = document.getElementById(`lista-${categoria}`);
   container.innerHTML = "";
   const filtrados = produtos.filter(p => p.categoria === categoria);
