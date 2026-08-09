@@ -229,4 +229,5 @@ function mostrarTela(tela) {
   if (tela === "carrinho") {
     document.getElementById("carrinho").click();
   }
-  if (t
+  if (tela === "meus-pedidos") {
+    document.getElementById("me
