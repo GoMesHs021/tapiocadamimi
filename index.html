@@ -44,19 +44,19 @@
   <section id="categoria-salgada" style="display:none;">
     <h2>Tapiocas Salgadas</h2>
     <div id="lista-salgada"></div>
-    <button onclick="mostrarTela('inicio')">⬅ Voltar</button>
+    <button onclick="mostrarTela('inicio'); document.getElementById('menu-inferior').style.display='flex';">⬅ Voltar</button>
   </section>
 
   <section id="categoria-doce" style="display:none;">
     <h2>Tapiocas Doces</h2>
     <div id="lista-doce"></div>
-    <button onclick="mostrarTela('inicio')">⬅ Voltar</button>
+    <button onclick="mostrarTela('inicio'); document.getElementById('menu-inferior').style.display='flex';">⬅ Voltar</button>
   </section>
 
   <section id="categoria-bebida" style="display:none;">
     <h2>Bebidas</h2>
     <div id="lista-bebida"></div>
-    <button onclick="mostrarTela('inicio')">⬅ Voltar</button>
+    <button onclick="mostrarTela('inicio'); document.getElementById('menu-inferior').style.display='flex';">⬅ Voltar</button>
   </section>
 
   <!-- Carrinho flutuante -->
@@ -72,29 +72,23 @@
       <form id="form-pedido">
         <h2>Finalizar Pedido</h2>
 
-        <!-- Tipo de pedido -->
         <label for="tipo-pedido">Tipo de pedido</label>
         <select id="tipo-pedido" required>
           <option value="retirada">Retirada</option>
           <option value="entrega">Entrega</option>
         </select>
 
-        <!-- Dados de entrega -->
         <div id="dados-entrega" style="display:none;">
           <label for="nome">Seu nome</label>
           <input type="text" id="nome">
-
           <label for="telefone">Número de telefone</label>
           <input type="text" id="telefone">
-
           <label for="endereco">Local da entrega</label>
           <input type="text" id="endereco">
-
           <label for="numero">Número da casa/prédio</label>
           <input type="text" id="numero">
         </div>
 
-        <!-- Forma de pagamento -->
         <label for="pagamento">Forma de pagamento</label>
         <select id="pagamento" required>
           <option value="pix">Pix</option>
@@ -102,21 +96,18 @@
           <option value="dinheiro">Dinheiro</option>
         </select>
 
-        <!-- Troco -->
         <div id="troco-opcao" style="display:none;">
           <label for="precisa-troco">Precisa de troco?</label>
           <select id="precisa-troco">
             <option value="nao">Não</option>
             <option value="sim">Sim</option>
           </select>
-
           <div id="valor-troco" style="display:none;">
             <label for="troco">Troco para quanto?</label>
             <input type="number" id="troco" placeholder="Ex: 100">
           </div>
         </div>
 
-        <!-- WhatsApp -->
         <label for="whatsapp">WhatsApp</label>
         <input type="text" id="whatsapp" required>
 
@@ -144,7 +135,7 @@
   <!-- Menu inferior -->
   <nav id="menu-inferior">
     <button onclick="mostrarTela('inicio')">🏠<span>Início</span></button>
-    <button onclick="mostrarTela('carrinho')">🛒<span>Carrinho</span></button>
+    <button onclick="document.getElementById('carrinho').click()">🛒<span>Carrinho</span></button>
     <button onclick="mostrarTela('meus-pedidos')">📦<span>Pedidos</span></button>
     <button onclick="mostrarTela('info')">ℹ️<span>Info</span></button>
   </nav>
