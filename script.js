@@ -2,9 +2,18 @@
 // Dados dos produtos
 // =========================
 const produtos = [
-  { nome: "Tapioca Tradicional", preco: 8, imagem: "tapioca1.jpg" },
-  { nome: "Tapioca com Queijo", preco: 10, imagem: "tapioca2.jpg" },
-  { nome: "Tapioca Doce", preco: 12, imagem: "tapioca3.jpg" }
+  { nome: "Tapioca Tradicional", preco: 8, imagem: "tapioca1.jpg", categoria: "salgada" },
+  { nome: "Tapioca com Queijo", preco: 10, imagem: "tapioca2.jpg", categoria: "salgada" },
+  { nome: "Tapioca Doce", preco: 12, imagem: "tapioca3.jpg", categoria: "doce" },
+  { nome: "Suco Natural", preco: 6, imagem: "suco.jpg", categoria: "bebida" }
+];
+
+// Lista de adicionais
+const adicionais = [
+  { nome: "Queijo extra", preco: 2 },
+  { nome: "Leite condensado", preco: 2 },
+  { nome: "Chocolate", preco: 3 },
+  { nome: "Coco ralado", preco: 2 }
 ];
 
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
@@ -70,6 +79,19 @@ document.getElementById("carrinho").addEventListener("click", () => {
       `;
     });
   }
+
+  // Renderizar adicionais
+  const listaAdd = document.getElementById("lista-adicionais");
+  listaAdd.innerHTML = "";
+  adicionais.forEach(add => {
+    listaAdd.innerHTML += `
+      <label>
+        <input type="checkbox" value="${add.nome} - R$ ${add.preco}">
+        ${add.nome} - R$ ${add.preco}
+      </label>
+    `;
+  });
+
   document.querySelector(".modal").classList.add("show");
 });
 
@@ -105,6 +127,7 @@ document.getElementById("form-pedido").addEventListener("submit", (e) => {
     return;
   }
 
+  const selecionados = [...document.querySelectorAll('#lista-adicionais input:checked')].map(c => c.value);
   const pagamento = document.getElementById("pagamento").value;
   const troco = document.getElementById("troco").value;
   const endereco = document.getElementById("endereco").value;
@@ -116,6 +139,11 @@ document.getElementById("form-pedido").addEventListener("submit", (e) => {
     resumo += `- ${item.nome} x${item.quantidade} (R$ ${item.preco.toFixed(2)})\n`;
     subtotal += item.preco * item.quantidade;
   });
+
+  if (selecionados.length > 0) {
+    resumo += `\nAdicionais: ${selecionados.join(", ")}`;
+  }
+
   resumo += `\nSubtotal: R$ ${subtotal.toFixed(2)}`;
   resumo += `\nPagamento: ${pagamento} (Troco: ${troco})`;
   resumo += `\nEndereço: ${endereco}`;
@@ -125,6 +153,7 @@ document.getElementById("form-pedido").addEventListener("submit", (e) => {
   const pedido = {
     id: Date.now(),
     itens: carrinho,
+    adicionais: selecionados,
     total: subtotal,
     status: "Recebido",
     data: new Date().toLocaleString()
@@ -158,7 +187,8 @@ function renderizarPedidos() {
           <strong>Pedido #${p.id}</strong><br>
           Data: ${p.data}<br>
           Total: R$ ${p.total.toFixed(2)}<br>
-          Status: ${p.status}
+          Status: ${p.status}<br>
+          ${p.adicionais && p.adicionais.length > 0 ? "Adicionais: " + p.adicionais.join(", ") : ""}
         </div>
       `;
     });
@@ -170,16 +200,11 @@ renderizarPedidos();
 // Navegação inferior
 // =========================
 function mostrarTela(tela) {
-  // Esconde todas
   document.getElementById("inicio").style.display = "none";
   document.getElementById("meus-pedidos").style.display = "none";
   document.getElementById("info").style.display = "none";
 
-  // Mostra a escolhida
-  if (tela === "inicio") {
-    document.getElementById("inicio").style.display = "block";
-  }
-  if (tela === "cardapio") {
+  if (tela === "inicio" || tela === "cardapio") {
     document.getElementById("inicio").style.display = "block";
   }
   if (tela === "carrinho") {
