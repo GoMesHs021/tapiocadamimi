@@ -236,3 +236,4 @@ function mostrarTela(tela) {
   document.getElementById("meus-pedidos").style.display = "none";
   document.getElementById("info").style.display = "none";
 
+  // Fecha modal se estiver aberto
