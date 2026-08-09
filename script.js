@@ -267,6 +267,33 @@ document.getElementById("precisa-troco").addEventListener("change", function() {
     document.getElementById("valor-troco").style.display = "none";
   }
 });
+// Mostrar campos de entrega ou retirada
+document.getElementById("tipo-pedido").addEventListener("change", function() {
+  if (this.value === "entrega") {
+    document.getElementById("dados-entrega").style.display = "block";
+  } else {
+    document.getElementById("dados-entrega").style.display = "none";
+  }
+});
+
+// Mostrar opções de troco se pagamento for dinheiro
+document.getElementById("pagamento").addEventListener("change", function() {
+  if (this.value === "dinheiro") {
+    document.getElementById("troco-opcao").style.display = "block";
+  } else {
+    document.getElementById("troco-opcao").style.display = "none";
+    document.getElementById("valor-troco").style.display = "none";
+  }
+});
+
+// Mostrar campo de valor do troco se cliente marcar "Sim"
+document.getElementById("precisa-troco").addEventListener("change", function() {
+  if (this.value === "sim") {
+    document.getElementById("valor-troco").style.display = "block";
+  } else {
+    document.getElementById("valor-troco").style.display = "none";
+  }
+});
 
 }
 }
