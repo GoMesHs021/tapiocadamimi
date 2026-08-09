@@ -225,3 +225,8 @@ function mostrarTela(tela) {
 
   if (tela === "inicio") {
     document.getElementById("inicio").style.display = "block";
+  }
+  if (tela === "carrinho") {
+    document.getElementById("carrinho").click();
+  }
+  if (t
