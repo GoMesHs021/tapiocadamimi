@@ -1,4 +1,6 @@
-// Produtos de exemplo
+// =========================
+// Dados dos produtos
+// =========================
 const produtos = [
   { nome: "Tapioca Tradicional", preco: 8, imagem: "tapioca1.jpg" },
   { nome: "Tapioca com Queijo", preco: 10, imagem: "tapioca2.jpg" },
@@ -8,9 +10,12 @@ const produtos = [
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 let pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
 
+// =========================
 // Renderizar produtos
+// =========================
 function renderizarProdutos() {
   const container = document.getElementById("produtos");
+  if (!container) return;
   container.innerHTML = "";
   produtos.forEach((prod, index) => {
     const card = document.createElement("div");
@@ -26,7 +31,9 @@ function renderizarProdutos() {
 }
 renderizarProdutos();
 
-// Adicionar ao carrinho
+// =========================
+// Carrinho
+// =========================
 function adicionarCarrinho(index) {
   const produto = { ...produtos[index], quantidade: 1 };
   carrinho.push(produto);
@@ -34,12 +41,10 @@ function adicionarCarrinho(index) {
   atualizarCarrinho();
 }
 
-// Atualizar carrinho
 function atualizarCarrinho() {
   document.getElementById("carrinho").textContent = `Carrinho (${carrinho.length})`;
 }
 
-// Salvar carrinho
 function salvarCarrinho() {
   localStorage.setItem("carrinho", JSON.stringify(carrinho));
 }
@@ -54,7 +59,7 @@ document.getElementById("carrinho").addEventListener("click", () => {
     carrinho.forEach((item, i) => {
       detalhes.innerHTML += `
         <div>
-          <strong>${item.nome}</strong> - R$ ${item.preco} 
+          <strong>${item.nome}</strong> - R$ ${item.preco.toFixed(2)}
           <div class="quantidade">
             <button onclick="alterarQuantidade(${i}, -1)">-</button>
             <span>${item.quantidade}</span>
@@ -85,13 +90,21 @@ function removerItem(index) {
   document.getElementById("carrinho").click();
 }
 
+// Fechar modal
+document.getElementById("fechar-modal").addEventListener("click", () => {
+  document.querySelector(".modal").classList.remove("show");
+});
+
+// =========================
 // Finalizar pedido
+// =========================
 document.getElementById("form-pedido").addEventListener("submit", (e) => {
   e.preventDefault();
   if (carrinho.length === 0) {
     alert("Carrinho vazio!");
     return;
   }
+
   const pagamento = document.getElementById("pagamento").value;
   const troco = document.getElementById("troco").value;
   const endereco = document.getElementById("endereco").value;
@@ -100,7 +113,7 @@ document.getElementById("form-pedido").addEventListener("submit", (e) => {
   let resumo = "📦 Pedido - Tapioca da Mimi\n\n";
   let subtotal = 0;
   carrinho.forEach(item => {
-    resumo += `- ${item.nome} x${item.quantidade} (R$ ${item.preco})\n`;
+    resumo += `- ${item.nome} x${item.quantidade} (R$ ${item.preco.toFixed(2)})\n`;
     subtotal += item.preco * item.quantidade;
   });
   resumo += `\nSubtotal: R$ ${subtotal.toFixed(2)}`;
@@ -129,7 +142,53 @@ document.getElementById("form-pedido").addEventListener("submit", (e) => {
   renderizarPedidos();
 });
 
-// Renderizar pedidos
+// =========================
+// Meus pedidos
+// =========================
 function renderizarPedidos() {
   const lista = document.getElementById("lista-pedidos");
-  lista
+  if (!lista) return;
+  lista.innerHTML = "";
+  if (pedidos.length === 0) {
+    lista.innerHTML = "<p>Nenhum pedido realizado ainda.</p>";
+  } else {
+    pedidos.forEach(p => {
+      lista.innerHTML += `
+        <div class="pedido">
+          <strong>Pedido #${p.id}</strong><br>
+          Data: ${p.data}<br>
+          Total: R$ ${p.total.toFixed(2)}<br>
+          Status: ${p.status}
+        </div>
+      `;
+    });
+  }
+}
+renderizarPedidos();
+
+// =========================
+// Navegação inferior
+// =========================
+function mostrarTela(tela) {
+  // Esconde todas
+  document.getElementById("inicio").style.display = "none";
+  document.getElementById("meus-pedidos").style.display = "none";
+  document.getElementById("info").style.display = "none";
+
+  // Mostra a escolhida
+  if (tela === "inicio") {
+    document.getElementById("inicio").style.display = "block";
+  }
+  if (tela === "cardapio") {
+    document.getElementById("inicio").style.display = "block";
+  }
+  if (tela === "carrinho") {
+    document.getElementById("carrinho").click();
+  }
+  if (tela === "meus-pedidos") {
+    document.getElementById("meus-pedidos").style.display = "block";
+  }
+  if (tela === "info") {
+    document.getElementById("info").style.display = "block";
+  }
+}
