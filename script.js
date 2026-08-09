@@ -230,4 +230,9 @@ function mostrarTela(tela) {
     document.getElementById("carrinho").click();
   }
   if (tela === "meus-pedidos") {
-    document.getElementById("me
+    document.getElementById("meus-pedidos").style.display = "block";
+  }
+  if (tela === "info") {
+    document.getElementById("info").style.display = "block";
+  }
+}
