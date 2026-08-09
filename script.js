@@ -30,7 +30,7 @@ function mostrarCategoria(categoria) {
   if (filtrados.length === 0) {
     container.innerHTML = "<p>Nenhum produto nesta categoria.</p>";
   } else {
-    filtrados.forEach((prod, index) => {
+    filtrados.forEach((prod) => {
       const card = document.createElement("div");
       card.className = "produto";
       card.innerHTML = `
@@ -48,7 +48,7 @@ function mostrarCategoria(categoria) {
 // Carrinho
 // =========================
 function adicionarCarrinho(index) {
-  const produto = { ...produtos[index], quantidade: 1 };
+  const produto = { ...produtos[index], quantidade: 1, adicionais: [] };
   carrinho.push(produto);
   salvarCarrinho();
   atualizarCarrinho();
@@ -78,26 +78,43 @@ document.getElementById("carrinho").addEventListener("click", () => {
             <span>${item.quantidade}</span>
             <button onclick="alterarQuantidade(${i}, 1)">+</button>
             <button onclick="removerItem(${i})">Remover</button>
+            <button onclick="mostrarAdicionais(${i})">ADD</button>
           </div>
+          <div id="adicionais-${i}" class="adicionais-lista" style="display:none;"></div>
         </div>
       `;
     });
   }
 
-  // Renderizar adicionais
-  const listaAdd = document.getElementById("lista-adicionais");
-  listaAdd.innerHTML = "";
+  document.querySelector(".modal").classList.add("show");
+});
+
+// Mostrar lista de adicionais para um item específico
+function mostrarAdicionais(index) {
+  const divAdd = document.getElementById(`adicionais-${index}`);
+  divAdd.innerHTML = "";
   adicionais.forEach(add => {
-    listaAdd.innerHTML += `
+    const checked = carrinho[index].adicionais.some(a => a.nome === add.nome);
+    divAdd.innerHTML += `
       <label>
-        <input type="checkbox" value="${add.nome} - R$ ${add.preco}">
+        <input type="checkbox" ${checked ? "checked" : ""} 
+          onchange="toggleAdicional(${index}, '${add.nome}', ${add.preco}, this.checked)">
         ${add.nome} - R$ ${add.preco}
       </label>
     `;
   });
+  divAdd.style.display = "block";
+}
 
-  document.querySelector(".modal").classList.add("show");
-});
+// Vincular adicionais ao item
+function toggleAdicional(index, nome, preco, checked) {
+  if (checked) {
+    carrinho[index].adicionais.push({ nome, preco });
+  } else {
+    carrinho[index].adicionais = carrinho[index].adicionais.filter(a => a.nome !== nome);
+  }
+  salvarCarrinho();
+}
 
 // Alterar quantidade
 function alterarQuantidade(index, delta) {
@@ -131,7 +148,6 @@ document.getElementById("form-pedido").addEventListener("submit", (e) => {
     return;
   }
 
-  const selecionados = [...document.querySelectorAll('#lista-adicionais input:checked')].map(c => c.value);
   const pagamento = document.getElementById("pagamento").value;
   const troco = document.getElementById("troco").value;
   const endereco = document.getElementById("endereco").value;
@@ -142,11 +158,11 @@ document.getElementById("form-pedido").addEventListener("submit", (e) => {
   carrinho.forEach(item => {
     resumo += `- ${item.nome} x${item.quantidade} (R$ ${item.preco.toFixed(2)})\n`;
     subtotal += item.preco * item.quantidade;
+    if (item.adicionais && item.adicionais.length > 0) {
+      resumo += `   Adicionais: ${item.adicionais.map(a => a.nome + " R$ " + a.preco).join(", ")}\n`;
+      item.adicionais.forEach(a => subtotal += a.preco);
+    }
   });
-
-  if (selecionados.length > 0) {
-    resumo += `\nAdicionais: ${selecionados.join(", ")}`;
-  }
 
   resumo += `\nSubtotal: R$ ${subtotal.toFixed(2)}`;
   resumo += `\nPagamento: ${pagamento} (Troco: ${troco})`;
@@ -157,7 +173,6 @@ document.getElementById("form-pedido").addEventListener("submit", (e) => {
   const pedido = {
     id: Date.now(),
     itens: carrinho,
-    adicionais: selecionados,
     total: subtotal,
     status: "Recebido",
     data: new Date().toLocaleString()
@@ -191,8 +206,7 @@ function renderizarPedidos() {
           <strong>Pedido #${p.id}</strong><br>
           Data: ${p.data}<br>
           Total: R$ ${p.total.toFixed(2)}<br>
-          Status: ${p.status}<br>
-          ${p.adicionais && p.adicionais.length > 0 ? "Adicionais: " + p.adicionais.join(", ") : ""}
+          Status: ${p.status}
         </div>
       `;
     });
@@ -204,23 +218,10 @@ renderizarPedidos();
 // Navegação inferior
 // =========================
 function mostrarTela(tela) {
-  // Esconde todas as seções
   document.getElementById("inicio").style.display = "none";
   document.getElementById("produtos").style.display = "none";
   document.getElementById("meus-pedidos").style.display = "none";
   document.getElementById("info").style.display = "none";
 
-  // Mostra a escolhida
   if (tela === "inicio") {
     document.getElementById("inicio").style.display = "block";
-  }
-  if (tela === "carrinho") {
-    document.getElementById("carrinho").click();
-  }
-  if (tela === "meus-pedidos") {
-    document.getElementById("meus-pedidos").style.display = "block";
-  }
-  if (tela === "info") {
-    document.getElementById("info").style.display = "block";
-  }
-}
