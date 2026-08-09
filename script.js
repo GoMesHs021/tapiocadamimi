@@ -102,7 +102,7 @@ document.getElementById("carrinho").addEventListener("click", () => {
   document.querySelector(".modal").classList.add("show");
 });
 
-// Mostrar lista de adicionais para um item específico
+// Mostrar lista de adicionais
 function mostrarAdicionais(index) {
   const divAdd = document.getElementById(`adicionais-${index}`);
   divAdd.innerHTML = "";
@@ -119,7 +119,6 @@ function mostrarAdicionais(index) {
   divAdd.style.display = "block";
 }
 
-// Vincular adicionais ao item
 function toggleAdicional(index, nome, preco, checked) {
   if (checked) {
     carrinho[index].adicionais.push({ nome, preco });
@@ -129,7 +128,6 @@ function toggleAdicional(index, nome, preco, checked) {
   salvarCarrinho();
 }
 
-// Alterar quantidade
 function alterarQuantidade(index, delta) {
   carrinho[index].quantidade += delta;
   if (carrinho[index].quantidade <= 0) carrinho.splice(index, 1);
@@ -138,7 +136,6 @@ function alterarQuantidade(index, delta) {
   document.getElementById("carrinho").click();
 }
 
-// Remover item
 function removerItem(index) {
   carrinho.splice(index, 1);
   salvarCarrinho();
@@ -198,6 +195,9 @@ document.getElementById("form-pedido").addEventListener("submit", (e) => {
       resumo += "Sem necessidade de troco\n";
     }
   }
+
+  const whatsapp = document.getElementById("whatsapp").value;
+  resumo += `WhatsApp: ${whatsapp}\n`;
 
   // Salvar pedido no histórico
   const pedido = {
