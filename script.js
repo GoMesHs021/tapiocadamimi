@@ -204,12 +204,16 @@ renderizarPedidos();
 // Navegação inferior
 // =========================
 function mostrarTela(tela) {
+  // Esconde todas as seções
   document.getElementById("inicio").style.display = "none";
+  document.getElementById("produtos").style.display = "none";
   document.getElementById("meus-pedidos").style.display = "none";
   document.getElementById("info").style.display = "none";
 
-  if (tela === "inicio" || tela === "cardapio") {
+  // Mostra a escolhida
+  if (tela === "inicio") {
     document.getElementById("inicio").style.display = "block";
+    document.getElementById("produtos").style.display = "none"; // só aparece ao clicar na categoria
   }
   if (tela === "carrinho") {
     document.getElementById("carrinho").click();
