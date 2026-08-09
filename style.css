@@ -568,3 +568,7 @@ header p { margin: 5px 0 0; font-size: 1.3em; }
   font-size: 1em;
   margin-top: 4px;
 }
+/* Ajuste para a aba Info não ficar escondida atrás do menu */
+#info {
+  padding-bottom: 80px; /* espaço extra para não ser coberto */
+}
