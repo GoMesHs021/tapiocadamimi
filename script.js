@@ -1,23 +1,29 @@
-// =========================
-// Dados dos produtos
-// =========================
-const produtos = [
-  { nome: "Tapioca Tradicional", preco: 4, imagem: "tapioca1.jpg", categoria: "salgada" },
-  { nome: "Tapioca com Mussarela", preco: 11, imagem: "tapioca2.jpg", categoria: "salgada" },
-  { nome: "Tapioca Doce", preco: 12, imagem: "tapioca3.jpg", categoria: "doce" },
-  { nome: "Guaravita", preco: 2, imagem: "suco.jpg", categoria: "bebida" }
-];
-
-// Lista de adicionais
-const adicionais = [
-  { nome: "Queijo extra", preco: 2 },
-  { nome: "Leite condensado", preco: 2 },
-  { nome: "Chocolate", preco: 3 },
-  { nome: "Coco ralado", preco: 2 }
-];
-
+let produtos = [];
+let adicionais = [];
 let carrinho = JSON.parse(localStorage.getItem("carrinho")) || [];
 let pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
+
+// =========================
+// Carregar dados do JSON
+// =========================
+fetch("data.json")
+  .then(response => response.json())
+  .then(data => {
+    // Carregar produtos
+    produtos = data.produtos.map(p => ({
+      nome: p.nome,
+      preco: parseFloat(p.preco.replace(",", ".")),
+      imagem: p.imagem,
+      categoria: p.categoria || "salgada" // se não tiver categoria, define padrão
+    }));
+
+    // Carregar adicionais
+    adicionais = data.adicionais.map(a => ({
+      nome: a.nome,
+      preco: parseFloat(a.preco.replace(",", "."))
+    }));
+  })
+  .catch(error => console.error("Erro ao carregar data.json:", error));
 
 // =========================
 // Mostrar produtos por categoria
@@ -30,14 +36,14 @@ function mostrarCategoria(categoria) {
   if (filtrados.length === 0) {
     container.innerHTML = "<p>Nenhum produto nesta categoria.</p>";
   } else {
-    filtrados.forEach((prod) => {
+    filtrados.forEach((prod, index) => {
       const card = document.createElement("div");
       card.className = "produto";
       card.innerHTML = `
         <img src="${prod.imagem}" alt="${prod.nome}">
         <h3>${prod.nome}</h3>
         <p>R$ ${prod.preco.toFixed(2)}</p>
-        <button onclick="adicionarCarrinho(${produtos.indexOf(prod)})">Adicionar</button>
+        <button onclick="adicionarCarrinho(${index})">Adicionar</button>
       `;
       container.appendChild(card);
     });
