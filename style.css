@@ -9,6 +9,33 @@ body {
   line-height: 1.6;
 }
 
+/* Perfil */
+#perfil {
+  display:flex;
+  align-items:center;
+  gap:15px;
+  padding:20px;
+  background:#fff3e0;
+  border-bottom:2px solid #800020;
+}
+#perfil img {
+  width:80px;
+  height:80px;
+  border-radius:50%;
+  border:2px solid #800020;
+  object-fit:cover;
+}
+#perfil h2 {
+  margin:0;
+  color:#800020;
+  font-size:1.4em;
+}
+#perfil p {
+  margin:2px 0;
+  font-size:1em;
+  color:#333;
+}
+
 /* Cabeçalho */
 header {
   background:#800020; color:#fff;
