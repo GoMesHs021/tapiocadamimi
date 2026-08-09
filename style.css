@@ -571,3 +571,6 @@ header p { margin: 5px 0 0; font-size: 1.3em; }
 #info {
   padding-bottom: 80px; /* espaço extra para não ser coberto */
 }
+section {
+  padding-bottom: 80px; /* espaço para o menu inferior */
+}
