@@ -172,9 +172,9 @@ document.getElementById("form-pedido").addEventListener("submit", (e) => {
     resumo += `- ${item.nome} x${item.quantidade} (R$ ${item.preco.toFixed(2)})\n`;
     subtotal += item.preco * item.quantidade;
     if (item.adicionais && item.adicionais.length > 0) {
-  resumo += `   Adicionais: ${item.adicionais.map(a => a.nome + " R$ " + a.preco).join(", ")}\n`;
-  item.adicionais.forEach(a => subtotal += a.preco * item.quantidade);
-}
+      resumo += `   Adicionais: ${item.adicionais.map(a => a.nome + " R$ " + a.preco).join(", ")}\n`;
+      item.adicionais.forEach(a => subtotal += a.preco * item.quantidade);
+    }
   });
 
   resumo += `\nSubtotal: R$ ${subtotal.toFixed(2)}`;
@@ -231,23 +231,8 @@ renderizarPedidos();
 // Navegação inferior
 // =========================
 function mostrarTela(tela) {
-  // Esconde todas as seções
   document.getElementById("inicio").style.display = "none";
   document.getElementById("produtos").style.display = "none";
   document.getElementById("meus-pedidos").style.display = "none";
   document.getElementById("info").style.display = "none";
 
-  // Mostra a escolhida
-  if (tela === "inicio") {
-    document.getElementById("inicio").style.display = "block";
-  }
-  if (tela === "carrinho") {
-    document.getElementById("carrinho").click();
-  }
-  if (tela === "meus-pedidos") {
-    document.getElementById("meus-pedidos").style.display = "block";
-  }
-  if (tela === "info") {
-    document.getElementById("info").style.display = "block";
-  }
-}
