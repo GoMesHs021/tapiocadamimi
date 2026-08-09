@@ -24,13 +24,20 @@ header p { margin:5px 0 0; font-size:1.1em; }
   cursor:pointer; width:80%;
 }
 
-/* Categorias */
+/* Categorias com imagens */
 #categorias { padding:15px; }
 .categoria {
-  background:#fff3e0; border:2px solid #800020;
-  border-radius:8px; padding:10px; margin:5px 0;
+  background:#fff; border:2px solid #800020;
+  border-radius:12px; padding:10px; margin:10px 0;
   text-align:center; font-weight:bold;
+  cursor:pointer; transition:transform 0.2s ease;
 }
+.categoria:hover { transform:scale(1.05); }
+.categoria img {
+  width:100%; max-height:150px; object-fit:cover;
+  border-radius:10px; margin-bottom:8px;
+}
+.categoria span { color:#800020; font-size:1.2em; }
 
 /* Produtos */
 #produtos { display:flex; flex-direction:column; gap:15px; margin:15px; }
