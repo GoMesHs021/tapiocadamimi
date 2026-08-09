@@ -294,6 +294,3 @@ document.getElementById("precisa-troco").addEventListener("change", function() {
     document.getElementById("valor-troco").style.display = "none";
   }
 });
-
-}
-}
