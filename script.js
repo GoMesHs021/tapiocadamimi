@@ -33,13 +33,23 @@ fetch("data.json")
   .catch(error => console.error("Erro ao carregar data.json:", error));
 
 // =========================
-// Mostrar produtos por categoria
+// Mostrar produtos por categoria (nova versão com abas)
 // =========================
 function mostrarCategoria(categoria) {
-  const container = document.getElementById("produtos");
-  container.style.display = "block";
+  // Esconde todas as seções principais
+  document.getElementById("inicio").style.display = "none";
+  document.getElementById("categoria-salgada").style.display = "none";
+  document.getElementById("categoria-doce").style.display = "none";
+  document.getElementById("categoria-bebida").style.display = "none";
+
+  // Mostra apenas a aba escolhida
+  document.getElementById(`categoria-${categoria}`).style.display = "block";
+
+  // Renderiza os produtos da categoria
+  const container = document.getElementById(`lista-${categoria}`);
   container.innerHTML = "";
   const filtrados = produtos.filter(p => p.categoria === categoria);
+
   if (filtrados.length === 0) {
     container.innerHTML = "<p>Nenhum produto nesta categoria.</p>";
   } else {
@@ -220,9 +230,7 @@ document.getElementById("form-pedido").addEventListener("submit", (e) => {
   renderizarPedidos();
 });
 
-// =========================
-// Meus pedidos
-// =========================
+// ========================= // Meus pedidos
 function renderizarPedidos() {
   const lista = document.getElementById("lista-pedidos");
   if (!lista) return;
@@ -242,6 +250,34 @@ function renderizarPedidos() {
     });
   }
 }
+
+// =========================
+// Navegação pelo menu inferior
+// =========================
+function mostrarTela(tela) {
+  // Esconde todas as seções
+  document.getElementById("inicio").style.display = "none";
+  document.getElementById("categoria-salgada").style.display = "none";
+  document.getElementById("categoria-doce").style.display = "none";
+  document.getElementById("categoria-bebida").style.display = "none";
+  document.getElementById("meus-pedidos").style.display = "none";
+  document.getElementById("info").style.display = "none";
+
+  // Mostra apenas a seção escolhida
+  if (document.getElementById(tela)) {
+    document.getElementById(tela).style.display = "block";
+  }
+
+  // Se for pedidos, renderiza a lista
+  if (tela === "meus-pedidos") {
+    renderizarPedidos();
+  }
+}
+
+// =========================
+// Eventos de formulário
+// =========================
+
 // Mostrar campos de entrega ou retirada
 document.getElementById("tipo-pedido").addEventListener("change", function() {
   if (this.value === "entrega") {
@@ -267,30 +303,5 @@ document.getElementById("precisa-troco").addEventListener("change", function() {
     document.getElementById("valor-troco").style.display = "block";
   } else {
     document.getElementById("valor-troco").style.display = "none";
-  }
-});
-
-// =========================
-// Navegação pelo menu inferior
-// =========================
-function mostrarTela(tela) {
-  document.getElementById("inicio").style.display = "none";
-  document.getElementById("produtos").style.display = "none";
-  document.getElementById("meus-pedidos").style.display = "none";
-  document.getElementById("info").style.display = "none";
-
-  document.getElementById(tela).style.display = "block";
-
-  if (tela === "meus-pedidos") {
-    renderizarPedidos();
-  }
-}
-
-  // Mostrar campos de entrega ou retirada
-document.getElementById("tipo-pedido").addEventListener("change", function() {
-  if (this.value === "entrega") {
-    document.getElementById("dados-entrega").style.display = "block";
-  } else {
-    document.getElementById("dados-entrega").style.display = "none";
   }
 });
