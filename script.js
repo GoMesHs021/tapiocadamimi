@@ -36,19 +36,16 @@ fetch("data.json")
 // Mostrar produtos por categoria (nova versão com abas)
 // =========================
 function mostrarCategoria(categoria) {
-  // Esconde todas as seções principais
   document.getElementById("inicio").style.display = "none";
   document.getElementById("categoria-salgada").style.display = "none";
   document.getElementById("categoria-doce").style.display = "none";
   document.getElementById("categoria-bebida").style.display = "none";
 
-  // Mostra apenas a aba escolhida
   document.getElementById(`categoria-${categoria}`).style.display = "block";
 
   // Esconde o menu inferior
   document.getElementById("menu-inferior").style.display = "none";
 
-  // Renderiza os produtos da categoria...
   const container = document.getElementById(`lista-${categoria}`);
   container.innerHTML = "";
   const filtrados = produtos.filter(p => p.categoria === categoria);
@@ -56,14 +53,17 @@ function mostrarCategoria(categoria) {
   if (filtrados.length === 0) {
     container.innerHTML = "<p>Nenhum produto nesta categoria.</p>";
   } else {
-    filtrados.forEach((prod, index) => {
+    filtrados.forEach((prod) => {
+      // índice real no array produtos
+      const indexReal = produtos.findIndex(p => p.nome === prod.nome);
+
       const card = document.createElement("div");
       card.className = "produto";
       card.innerHTML = `
         <img src="${prod.imagem}" alt="${prod.nome}">
         <h3>${prod.nome}</h3>
         <p>R$ ${prod.preco.toFixed(2)}</p>
-        <button onclick="adicionarCarrinho(${index})">Adicionar</button>
+        <button onclick="adicionarCarrinho(${indexReal})">Adicionar</button>
       `;
       container.appendChild(card);
     });
