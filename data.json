@@ -147,13 +147,13 @@
       "categoria": "doce",
       "mensagem": "Gostaria de fazer esse pedido!"
     },
-    {
+       {
       "nome": "Coca cola (Lata 350 ml)",
       "preco": "5,00",
       "imagem": "coca.jpg",
       "categoria": "bebida",
       "mensagem": "Gostaria de fazer esse pedido!"
-    }
+    },
     {
       "nome": "Guaravita",
       "preco": "2,00",
