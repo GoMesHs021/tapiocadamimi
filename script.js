@@ -96,7 +96,6 @@ function salvarCarrinho() {
   localStorage.setItem("carrinho", JSON.stringify(carrinho));
 }
 
-// Abrir modal carrinho
 document.getElementById("carrinho").addEventListener("click", () => {
   const detalhes = document.getElementById("detalhes-produto");
   detalhes.innerHTML = "";
@@ -119,11 +118,9 @@ document.getElementById("carrinho").addEventListener("click", () => {
       `;
     });
   }
-
   document.querySelector(".modal").classList.add("show");
 });
 
-// Mostrar lista de adicionais
 function mostrarAdicionais(index) {
   const divAdd = document.getElementById(`adicionais-${index}`);
   divAdd.innerHTML = "";
@@ -164,7 +161,6 @@ function removerItem(index) {
   document.getElementById("carrinho").click();
 }
 
-// Fechar modal
 document.getElementById("fechar-modal").addEventListener("click", () => {
   document.querySelector(".modal").classList.remove("show");
 });
@@ -211,14 +207,15 @@ document.getElementById("form-pedido").addEventListener("submit", (e) => {
     if (precisaTroco === "sim") {
       const troco = document.getElementById("troco").value;
       resumo += `Troco para: R$ ${troco}\n`;
-    } else {
+       } else {
       resumo += "Sem necessidade de troco\n";
     }
   }
 
   const whatsapp = document.getElementById("whatsapp").value;
-  resumo += `WhatsApp: ${whatsapp}\n
-    // Salvar cadastro do cliente
+  resumo += `WhatsApp: ${whatsapp}\n`;
+
+  // Salvar cadastro do cliente
   const cadastroCliente = {
     nome: document.getElementById("nome").value,
     telefone: document.getElementById("telefone").value,
