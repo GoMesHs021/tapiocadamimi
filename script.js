@@ -9,14 +9,12 @@ let pedidos = JSON.parse(localStorage.getItem("pedidos")) || [];
 fetch("data.json")
   .then(response => response.json())
   .then(data => {
-    // Perfil
     document.getElementById("perfil-foto").src = data.perfil.foto;
     document.getElementById("perfil-mensagem").textContent = data.perfil.mensagem;
     document.getElementById("perfil-localizacao").textContent = "📍 " + data.perfil.localizacao;
     document.getElementById("perfil-horario").textContent = "⏰ " + data.perfil.horario;
     document.getElementById("perfil-area").textContent = "🚚 " + data.perfil.area;
 
-    // Produtos
     produtos = data.produtos.map(p => ({
       nome: p.nome,
       preco: parseFloat(p.preco.replace(",", ".")),
@@ -24,7 +22,6 @@ fetch("data.json")
       categoria: p.categoria || "salgada"
     }));
 
-    // Adicionais
     adicionais = data.adicionais.map(a => ({
       nome: a.nome,
       preco: parseFloat(a.preco.replace(",", "."))
@@ -33,7 +30,20 @@ fetch("data.json")
   .catch(error => console.error("Erro ao carregar data.json:", error));
 
 // =========================
-// Mostrar produtos por categoria (nova versão com abas)
+// Carregar cadastro salvo
+// =========================
+const cadastroSalvo = JSON.parse(localStorage.getItem("cadastroCliente"));
+if (cadastroSalvo) {
+  document.getElementById("nome").value = cadastroSalvo.nome || "";
+  document.getElementById("telefone").value = cadastroSalvo.telefone || "";
+  document.getElementById("endereco").value = cadastroSalvo.endereco || "";
+  document.getElementById("numero").value = cadastroSalvo.numero || "";
+  document.getElementById("pagamento").value = cadastroSalvo.pagamento || "pix";
+  document.getElementById("whatsapp").value = cadastroSalvo.whatsapp || "";
+}
+
+// =========================
+// Mostrar produtos por categoria
 // =========================
 function mostrarCategoria(categoria) {
   document.getElementById("inicio").style.display = "none";
@@ -54,9 +64,7 @@ function mostrarCategoria(categoria) {
     container.innerHTML = "<p>Nenhum produto nesta categoria.</p>";
   } else {
     filtrados.forEach((prod) => {
-      // índice real no array produtos
       const indexReal = produtos.findIndex(p => p.nome === prod.nome);
-
       const card = document.createElement("div");
       card.className = "produto";
       card.innerHTML = `
@@ -174,7 +182,6 @@ document.getElementById("form-pedido").addEventListener("submit", (e) => {
   const tipoPedido = document.getElementById("tipo-pedido").value;
   let resumo = "📦 Pedido - Tapioca da Mimi\n\n";
 
-  // Itens do carrinho
   let subtotal = 0;
   carrinho.forEach(item => {
     resumo += `- ${item.nome} x${item.quantidade} (R$ ${item.preco.toFixed(2)})\n`;
@@ -210,7 +217,17 @@ document.getElementById("form-pedido").addEventListener("submit", (e) => {
   }
 
   const whatsapp = document.getElementById("whatsapp").value;
-  resumo += `WhatsApp: ${whatsapp}\n`;
+  resumo += `WhatsApp: ${whatsapp}\n
+    // Salvar cadastro do cliente
+  const cadastroCliente = {
+    nome: document.getElementById("nome").value,
+    telefone: document.getElementById("telefone").value,
+    endereco: document.getElementById("endereco").value,
+    numero: document.getElementById("numero").value,
+    pagamento: document.getElementById("pagamento").value,
+    whatsapp: document.getElementById("whatsapp").value
+  };
+  localStorage.setItem("cadastroCliente", JSON.stringify(cadastroCliente));
 
   // Salvar pedido no histórico
   const pedido = {
@@ -223,9 +240,10 @@ document.getElementById("form-pedido").addEventListener("submit", (e) => {
   pedidos.push(pedido);
   localStorage.setItem("pedidos", JSON.stringify(pedidos));
 
-  // Abrir WhatsApp
+  // Abrir WhatsApp com resumo
   window.open(`https://wa.me/5521995714872?text=${encodeURIComponent(resumo)}`, "_blank");
 
+  // Limpar carrinho
   carrinho = [];
   salvarCarrinho();
   atualizarCarrinho();
@@ -233,7 +251,9 @@ document.getElementById("form-pedido").addEventListener("submit", (e) => {
   renderizarPedidos();
 });
 
-// ========================= // Meus pedidos
+// =========================
+// Meus pedidos
+// =========================
 function renderizarPedidos() {
   const lista = document.getElementById("lista-pedidos");
   if (!lista) return;
@@ -258,7 +278,6 @@ function renderizarPedidos() {
 // Navegação pelo menu inferior
 // =========================
 function mostrarTela(tela) {
-  // Esconde todas as seções
   document.getElementById("inicio").style.display = "none";
   document.getElementById("categoria-salgada").style.display = "none";
   document.getElementById("categoria-doce").style.display = "none";
@@ -266,12 +285,10 @@ function mostrarTela(tela) {
   document.getElementById("meus-pedidos").style.display = "none";
   document.getElementById("info").style.display = "none";
 
-  // Mostra apenas a seção escolhida
   if (document.getElementById(tela)) {
     document.getElementById(tela).style.display = "block";
   }
 
-  // Se for pedidos, renderiza a lista
   if (tela === "meus-pedidos") {
     renderizarPedidos();
   }
@@ -280,8 +297,6 @@ function mostrarTela(tela) {
 // =========================
 // Eventos de formulário
 // =========================
-
-// Mostrar campos de entrega ou retirada
 document.getElementById("tipo-pedido").addEventListener("change", function() {
   if (this.value === "entrega") {
     document.getElementById("dados-entrega").style.display = "block";
@@ -290,7 +305,6 @@ document.getElementById("tipo-pedido").addEventListener("change", function() {
   }
 });
 
-// Mostrar opções de troco se pagamento for dinheiro
 document.getElementById("pagamento").addEventListener("change", function() {
   if (this.value === "dinheiro") {
     document.getElementById("troco-opcao").style.display = "block";
@@ -300,7 +314,6 @@ document.getElementById("pagamento").addEventListener("change", function() {
   }
 });
 
-// Mostrar campo de valor do troco se cliente marcar "Sim"
 document.getElementById("precisa-troco").addEventListener("change", function() {
   if (this.value === "sim") {
     document.getElementById("valor-troco").style.display = "block";
