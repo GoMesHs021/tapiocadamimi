@@ -15,13 +15,6 @@
       "mensagem": "Gostaria de fazer esse pedido!"
     },
     {
-      "nome": "Tapioca de Coco com leite condensado 🥥",
-      "preco": "10,00",
-      "imagem": "https://tse1.mm.bing.net/th/id/OIP.OKAgL59iKqswt9DQiB_yZQHaEw",
-      "categoria": "doce",
-      "mensagem": "Gostaria de fazer esse pedido!"
-    },
-    {
       "nome": "Tapioca de manteiga",
       "preco": "6,00",
       "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
@@ -29,9 +22,142 @@
       "mensagem": "Gostaria de fazer esse pedido!"
     },
     {
+      "nome": "Queijo Coalho",
+      "preco": "11,00",
+      "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
+      "categoria": "salgada",
+      "mensagem": "Gostaria de fazer esse pedido!"
+    },
+    {
+      "nome": "Mussarela",
+      "preco": "11,00",
+      "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
+      "categoria": "salgada",
+      "mensagem": "Gostaria de fazer esse pedido!"
+    },
+    {
+      "nome": "Ovo C/ Queijo",
+      "preco": "12,00",
+      "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
+      "categoria": "salgada",
+      "mensagem": "Gostaria de fazer esse pedido!"
+    },
+    {
+      "nome": "Tapioca Ovo Frito",
+      "preco": "6,00",
+      "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
+      "categoria": "salgada",
+      "mensagem": "Gostaria de fazer esse pedido!"
+    },
+    {
+      "nome": "Tapioca de Presunto C/ Queijo ",
+      "preco": "13,00",
+      "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
+      "categoria": "salgada",
+      "mensagem": "Gostaria de fazer esse pedido!"
+    },
+    {
+      "nome": "Tapioca de Frango",
+      "preco": "10,00",
+      "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
+      "categoria": "salgada",
+      "mensagem": "Gostaria de fazer esse pedido!"
+    },
+    {
+      "nome": "Tapioca de Frango C/ Creme Cheese",
+      "preco": "13,00",
+      "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
+      "categoria": "salgada",
+      "mensagem": "Gostaria de fazer esse pedido!"
+    },
+    {
+      "nome": "Tapioca de Carne seca C/ Cheese",
+      "preco": "17,00",
+      "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
+      "categoria": "salgada",
+      "mensagem": "Gostaria de fazer esse pedido!"
+    },
+    {
+      "nome": "Tapioca de Carne",
+      "preco": "14,00",
+      "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
+      "categoria": "salgada",
+      "mensagem": "Gostaria de fazer esse pedido!"
+    },
+    {
+      "nome": "Tapioca Mata fome (Todos os recheios salgados)",
+      "preco": "24,00",
+      "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
+      "categoria": "salgada",
+      "mensagem": "Gostaria de fazer esse pedido!"
+    },
+    {
+      "nome": "Tapioca de Côco com leite condensado",
+      "preco": "10,00",
+      "imagem": "https://tse1.mm.bing.net/th/id/OIP.OKAgL59iKqswt9DQiB_yZQHaEw",
+      "categoria": "doce",
+      "mensagem": "Gostaria de fazer esse pedido!"
+    },
+    {
+      "nome": "Tapioca de Côco",
+      "preco": "8,00",
+      "imagem": "https://tse1.mm.bing.net/th/id/OIP.OKAgL59iKqswt9DQiB_yZQHaEw",
+      "categoria": "doce",
+      "mensagem": "Gostaria de fazer esse pedido!"
+    },
+    {
+      "nome": "Tapioca de Banana C/ Canela",
+      "preco": "7,00",
+      "imagem": "https://tse1.mm.bing.net/th/id/OIP.OKAgL59iKqswt9DQiB_yZQHaEw",
+      "categoria": "doce",
+      "mensagem": "Gostaria de fazer esse pedido!"
+    },
+    {
+      "nome": "Tapioca de Banana C/ Leite Condensado",
+      "preco": "10,00",
+      "imagem": "https://tse1.mm.bing.net/th/id/OIP.OKAgL59iKqswt9DQiB_yZQHaEw",
+      "categoria": "doce",
+      "mensagem": "Gostaria de fazer esse pedido!"
+    },
+    {
+      "nome": "Tapioca de Leite Condensado",
+      "preco": "8,00",
+      "imagem": "https://tse1.mm.bing.net/th/id/OIP.OKAgL59iKqswt9DQiB_yZQHaEw",
+      "categoria": "doce",
+      "mensagem": "Gostaria de fazer esse pedido!"
+    },
+    {
+      "nome": "Tapioca de Nutella",
+      "preco": "17,00",
+      "imagem": "https://tse1.mm.bing.net/th/id/OIP.OKAgL59iKqswt9DQiB_yZQHaEw",
+      "categoria": "doce",
+      "mensagem": "Gostaria de fazer esse pedido!"
+    },
+    {
+      "nome": "Tapioca de Nutella C/ Coco",
+      "preco": "18,00",
+      "imagem": "https://tse1.mm.bing.net/th/id/OIP.OKAgL59iKqswt9DQiB_yZQHaEw",
+      "categoria": "doce",
+      "mensagem": "Gostaria de fazer esse pedido!"
+    },
+    {
+      "nome": "Tapioca de Nutella C/ Banana",
+      "preco": "18,00",
+      "imagem": "https://tse1.mm.bing.net/th/id/OIP.OKAgL59iKqswt9DQiB_yZQHaEw",
+      "categoria": "doce",
+      "mensagem": "Gostaria de fazer esse pedido!"
+    },
+    {
       "nome": "Coca cola (Lata 350 ml)",
       "preco": "5,00",
       "imagem": "coca.jpg",
+      "categoria": "bebida",
+      "mensagem": "Gostaria de fazer esse pedido!"
+    }
+    {
+      "nome": "Guaravita",
+      "preco": "2,00",
+      "imagem": "aaaa",
       "categoria": "bebida",
       "mensagem": "Gostaria de fazer esse pedido!"
     }
