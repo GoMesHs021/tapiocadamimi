@@ -85,7 +85,7 @@
       "mensagem": "Gostaria de fazer esse pedido!"
     },
     {
-      "nome": "Tapioca Mata fome (Todos os recheios salgados)",
+      "nome": "Tapioca Mata fome",
       "preco": "24,00",
       "imagem": "matafome.jpg",
       "categoria": "salgada",
@@ -164,6 +164,10 @@
   ],
   "adicionais": [
     { "nome": "Ovo", "preco": "2,00" },
+    { "nome": "Queijo Minas (Por fatia)", "preco": "4,00" },
+    { "nome": "Carne seca", "preco": "8,00" },
+    { "nome": "Peito de peru", "preco": "4,00" },
+    { "nome": "Nutela", "preco": "5,00" },
     { "nome": "Canela", "preco": "3,00" },
     { "nome": "Leite condensado", "preco": "4,00" },
     { "nome": "Mussarela", "preco": "5,00" },
