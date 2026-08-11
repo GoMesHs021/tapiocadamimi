@@ -17,77 +17,77 @@
     {
       "nome": "Tapioca de manteiga",
       "preco": "6,00",
-      "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
+      "imagem": "mantega.jpg",
       "categoria": "salgada",
       "mensagem": "Gostaria de fazer esse pedido!"
     },
     {
       "nome": "Queijo Coalho",
       "preco": "11,00",
-      "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
+      "imagem": "queijocoalho.jpg",
       "categoria": "salgada",
       "mensagem": "Gostaria de fazer esse pedido!"
     },
     {
       "nome": "Mussarela",
       "preco": "11,00",
-      "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
+      "imagem": "mussarela.jpg",
       "categoria": "salgada",
       "mensagem": "Gostaria de fazer esse pedido!"
     },
     {
       "nome": "Ovo C/ Queijo",
       "preco": "12,00",
-      "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
+      "imagem": "ovo.jpg",
       "categoria": "salgada",
       "mensagem": "Gostaria de fazer esse pedido!"
     },
     {
       "nome": "Tapioca Ovo Frito",
       "preco": "6,00",
-      "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
+      "imagem": "ovo.jpg",
       "categoria": "salgada",
       "mensagem": "Gostaria de fazer esse pedido!"
     },
     {
       "nome": "Tapioca de Presunto C/ Queijo ",
       "preco": "13,00",
-      "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
+      "imagem": "queijopresunto.jpg",
       "categoria": "salgada",
       "mensagem": "Gostaria de fazer esse pedido!"
     },
     {
       "nome": "Tapioca de Frango",
       "preco": "10,00",
-      "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
+      "imagem": "frangocremecheese.jpg",
       "categoria": "salgada",
       "mensagem": "Gostaria de fazer esse pedido!"
     },
     {
       "nome": "Tapioca de Frango C/ Creme Cheese",
       "preco": "13,00",
-      "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
+      "imagem": "frangocremecheese.jpg",
       "categoria": "salgada",
       "mensagem": "Gostaria de fazer esse pedido!"
     },
     {
       "nome": "Tapioca de Carne seca C/ Cheese",
       "preco": "17,00",
-      "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
+      "imagem": "carneseca.jpg",
       "categoria": "salgada",
       "mensagem": "Gostaria de fazer esse pedido!"
     },
     {
       "nome": "Tapioca de Carne",
       "preco": "14,00",
-      "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
+      "imagem": "carneseca.jpg",
       "categoria": "salgada",
       "mensagem": "Gostaria de fazer esse pedido!"
     },
     {
       "nome": "Tapioca Mata fome (Todos os recheios salgados)",
       "preco": "24,00",
-      "imagem": "https://app.cardapiodigital.net/dnizcafeebistro/5743-large_default/manteiga.jpg",
+      "imagem": "matafome.jpg",
       "categoria": "salgada",
       "mensagem": "Gostaria de fazer esse pedido!"
     },
@@ -129,21 +129,21 @@
     {
       "nome": "Tapioca de Nutella",
       "preco": "17,00",
-      "imagem": "https://tse1.mm.bing.net/th/id/OIP.OKAgL59iKqswt9DQiB_yZQHaEw",
+      "imagem": "nutela.jpg",
       "categoria": "doce",
       "mensagem": "Gostaria de fazer esse pedido!"
     },
     {
       "nome": "Tapioca de Nutella C/ Coco",
       "preco": "18,00",
-      "imagem": "https://tse1.mm.bing.net/th/id/OIP.OKAgL59iKqswt9DQiB_yZQHaEw",
+      "imagem": "nutelacoco.jpg",
       "categoria": "doce",
       "mensagem": "Gostaria de fazer esse pedido!"
     },
     {
       "nome": "Tapioca de Nutella C/ Banana",
       "preco": "18,00",
-      "imagem": "https://tse1.mm.bing.net/th/id/OIP.OKAgL59iKqswt9DQiB_yZQHaEw",
+      "imagem": "nutelabanana.jpg",
       "categoria": "doce",
       "mensagem": "Gostaria de fazer esse pedido!"
     },
