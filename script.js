@@ -89,14 +89,16 @@ function adicionarCarrinho(index) {
 }
 
 function atualizarCarrinho() {
-  document.getElementById("carrinho").textContent = `Carrinho (${carrinho.length})`;
+  // Atualiza o contador dentro do botão do menu inferior
+  document.querySelector("#menu-inferior button:nth-child(2) span")
+    .textContent = `Carrinho (${carrinho.length})`;
 }
 
 function salvarCarrinho() {
   localStorage.setItem("carrinho", JSON.stringify(carrinho));
 }
 
-document.getElementById("carrinho").addEventListener("click", () => {
+function abrirCarrinho() {
   const detalhes = document.getElementById("detalhes-produto");
   detalhes.innerHTML = "";
   if (carrinho.length === 0) {
@@ -119,7 +121,7 @@ document.getElementById("carrinho").addEventListener("click", () => {
     });
   }
   document.querySelector(".modal").classList.add("show");
-});
+}
 
 function mostrarAdicionais(index) {
   const divAdd = document.getElementById(`adicionais-${index}`);
@@ -151,14 +153,14 @@ function alterarQuantidade(index, delta) {
   if (carrinho[index].quantidade <= 0) carrinho.splice(index, 1);
   salvarCarrinho();
   atualizarCarrinho();
-  document.getElementById("carrinho").click();
+  abrirCarrinho();
 }
 
 function removerItem(index) {
   carrinho.splice(index, 1);
   salvarCarrinho();
   atualizarCarrinho();
-  document.getElementById("carrinho").click();
+  abrirCarrinho();
 }
 
 document.getElementById("fechar-modal").addEventListener("click", () => {
@@ -207,7 +209,7 @@ document.getElementById("form-pedido").addEventListener("submit", (e) => {
     if (precisaTroco === "sim") {
       const troco = document.getElementById("troco").value;
       resumo += `Troco para: R$ ${troco}\n`;
-       } else {
+    } else {
       resumo += "Sem necessidade de troco\n";
     }
   }
@@ -215,37 +217,37 @@ document.getElementById("form-pedido").addEventListener("submit", (e) => {
   const whatsapp = document.getElementById("whatsapp").value;
   resumo += `WhatsApp: ${whatsapp}\n`;
 
-  // Salvar cadastro do cliente
+ // Salvar cadastro do cliente
   const cadastroCliente = {
     nome: document.getElementById("nome").value,
-    telefone: document.getElementById("telefone").value,
-    endereco: document.getElementById("endereco").value,
-    numero: document.getElementById("numero").value,
-    pagamento: document.getElementById("pagamento").value,
-    whatsapp: document.getElementById("whatsapp").value
-  };
-  localStorage.setItem("cadastroCliente", JSON.stringify(cadastroCliente));
+     telefone: document.getElementById("telefone").value,
+  endereco: document.getElementById("endereco").value,
+  numero: document.getElementById("numero").value,
+  pagamento: document.getElementById("pagamento").value,
+  whatsapp: document.getElementById("whatsapp").value
+};
+localStorage.setItem("cadastroCliente", JSON.stringify(cadastroCliente));
 
-  // Salvar pedido no histórico
-  const pedido = {
-    id: Date.now(),
-    itens: carrinho,
-    total: subtotal,
-    status: "Recebido",
-    data: new Date().toLocaleString()
-  };
-  pedidos.push(pedido);
-  localStorage.setItem("pedidos", JSON.stringify(pedidos));
+// Salvar pedido no histórico
+const pedido = {
+  id: Date.now(),
+  itens: carrinho,
+  total: subtotal,
+  status: "Recebido",
+  data: new Date().toLocaleString()
+};
+pedidos.push(pedido);
+localStorage.setItem("pedidos", JSON.stringify(pedidos));
 
-  // Abrir WhatsApp com resumo
-  window.open(`https://wa.me/5521995714872?text=${encodeURIComponent(resumo)}`, "_blank");
+// Abrir WhatsApp com resumo
+window.open(`https://wa.me/5521995714872?text=${encodeURIComponent(resumo)}`, "_blank");
 
-  // Limpar carrinho
-  carrinho = [];
-  salvarCarrinho();
-  atualizarCarrinho();
-  document.querySelector(".modal").classList.remove("show");
-  renderizarPedidos();
+// Limpar carrinho
+carrinho = [];
+salvarCarrinho();
+atualizarCarrinho();
+document.querySelector(".modal").classList.remove("show");
+renderizarPedidos();
 });
 
 // =========================
