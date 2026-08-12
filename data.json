@@ -147,6 +147,49 @@
       "categoria": "doce",
       "mensagem": "Gostaria de fazer esse pedido!"
     },
+    {
+  "nome": "Pão",
+  "preco": "3,00",
+  "imagem": "pao.jpg",
+  "categoria": "paes",
+  "mensagem": "Gostaria de fazer esse pedido!"
+},
+{
+  "nome": "Pão c/ 1 ovo",
+  "preco": "5,00",
+  "imagem": "paoovo.jpg",
+  "categoria": "paes",
+  "mensagem": "Gostaria de fazer esse pedido!"
+},
+{
+  "nome": "Pão c/ ovo e mussarela",
+  "preco": "7,00",
+  "imagem": "paoovomussarela.jpg",
+  "categoria": "paes",
+  "mensagem": "Gostaria de fazer esse pedido!"
+},
+{
+  "nome": "Pão c/ mussarela na chapa",
+  "preco": "5,00",
+  "imagem": "paomussarela.jpg",
+  "categoria": "paes",
+  "mensagem": "Gostaria de fazer esse pedido!"
+},
+{
+  "nome": "Misto quente",
+  "preco": "7,00",
+  "imagem": "mistoquente.jpg",
+  "categoria": "paes",
+  "mensagem": "Gostaria de fazer esse pedido!"
+},
+{
+  "nome": "Pão c/ manteiga",
+  "preco": "2,50",
+  "imagem": "paomanteiga.jpg",
+  "categoria": "paes",
+  "mensagem": "Gostaria de fazer esse pedido!"
+}
+
        {
       "nome": "Coca cola (Lata 350 ml)",
       "preco": "5,00",
