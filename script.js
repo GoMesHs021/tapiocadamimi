@@ -281,6 +281,7 @@ function mostrarTela(tela) {
   document.getElementById("categoria-salgada").style.display = "none";
   document.getElementById("categoria-doce").style.display = "none";
   document.getElementById("categoria-bebida").style.display = "none";
+  document.getElementById("categoria-paes").style.display = "none"; // <-- ADICIONE ESTA LINHA
   document.getElementById("meus-pedidos").style.display = "none";
   document.getElementById("info").style.display = "none";
 
