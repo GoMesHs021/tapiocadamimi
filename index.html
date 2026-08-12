@@ -38,6 +38,10 @@
       <img src="bebidas.jpg" alt="Bebidas">
       <span>Bebidas</span>
     </div>
+    <div class="categoria" onclick="mostrarCategoria('paes')">
+      <img src="paes.jpg" alt="Pães">
+      <span>Pães</span>
+    </div>
   </section>
 
   <!-- Abas de categorias -->
@@ -56,6 +60,12 @@
   <section id="categoria-bebida" style="display:none;">
     <h2>Bebidas</h2>
     <div id="lista-bebida"></div>
+    <button onclick="mostrarTela('inicio'); document.getElementById('menu-inferior').style.display='flex';">⬅ Voltar</button>
+  </section>
+
+  <section id="categoria-paes" style="display:none;">
+    <h2>Pães</h2>
+    <div id="lista-paes"></div>
     <button onclick="mostrarTela('inicio'); document.getElementById('menu-inferior').style.display='flex';">⬅ Voltar</button>
   </section>
 
