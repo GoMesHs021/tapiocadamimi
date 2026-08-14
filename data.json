@@ -148,13 +148,6 @@
       "mensagem": "Gostaria de fazer esse pedido!"
     },
     {
-      "nome": "Pão",
-      "preco": "3,00",
-      "imagem": "pao.jpg",
-      "categoria": "paes",
-      "mensagem": "Gostaria de fazer esse pedido!"
-    },
-    {
       "nome": "Pão c/ 1 ovo",
       "preco": "5,00",
       "imagem": "paoovo.jpg",
